@@ -21,7 +21,7 @@ import net.sf.vfsjfilechooser.VFSJFileChooser;
 import net.sf.vfsjfilechooser.utils.VFSResources;
 import net.sf.vfsjfilechooser.utils.VFSUtils;
 
-import org.apache.commons.vfs.FileObject;
+import org.apache.commons.vfs2.FileObject;
 
 import java.awt.BorderLayout;
 import java.awt.Cursor;
@@ -243,7 +243,7 @@ public class BookmarksManagerPanel extends JPanel
                                 }
                                 else
                                 {
-                                    chooser.setCurrentDirectory(fo);
+                                    chooser.setCurrentDirectoryObject(fo);
                                     parentDialog.setVisible(false);
                                 }
                             }

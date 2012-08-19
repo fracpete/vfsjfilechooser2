@@ -21,7 +21,7 @@ import net.sf.vfsjfilechooser.VFSJFileChooser;
 import net.sf.vfsjfilechooser.filechooser.AbstractVFSFileFilter;
 import net.sf.vfsjfilechooser.filechooser.AbstractVFSFileView;
 
-import org.apache.commons.vfs.FileObject;
+import org.apache.commons.vfs2.FileObject;
 
 import javax.swing.plaf.ComponentUI;
 

@@ -23,8 +23,8 @@ import net.sf.vfsjfilechooser.filechooser.AbstractVFSFileSystemView;
 import net.sf.vfsjfilechooser.plaf.metal.MetalVFSFileChooserUI;
 import net.sf.vfsjfilechooser.utils.FileObjectComparatorFactory;
 
-import org.apache.commons.vfs.FileObject;
-import org.apache.commons.vfs.FileSystemException;
+import org.apache.commons.vfs2.FileObject;
+import org.apache.commons.vfs2.FileSystemException;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -150,7 +150,7 @@ public class BasicVFSDirectoryModel extends AbstractListModel
             files = new CopyOnWriteArrayList<FileObject>();
             directories = new CopyOnWriteArrayList<FileObject>();
 
-            FileObject currentDir = filechooser.getCurrentDirectory();
+            FileObject currentDir = filechooser.getCurrentDirectoryObject();
             AbstractVFSFileSystemView v = filechooser.getFileSystemView();
             directories.add(v.createFileObject(currentDir, ".."));
 
@@ -179,7 +179,7 @@ public class BasicVFSDirectoryModel extends AbstractListModel
      */
     public void validateFileCache()
     {
-        FileObject currentDirectory = filechooser.getCurrentDirectory();
+        FileObject currentDirectory = filechooser.getCurrentDirectoryObject();
 
         if (currentDirectory == null)
         {
@@ -460,7 +460,7 @@ public class BasicVFSDirectoryModel extends AbstractListModel
         {
             AbstractVFSFileSystemView fileSystem = filechooser.getFileSystemView();
 
-            FileObject cwd = filechooser.getCurrentDirectory();
+            FileObject cwd = filechooser.getCurrentDirectoryObject();
 
             // fix a bug here when the filesystem changes, the directories list needs to be notified
             if (!contains(cwd))

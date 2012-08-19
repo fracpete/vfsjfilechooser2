@@ -17,8 +17,9 @@
  */
 package net.sf.vfsjfilechooser.filechooser;
 
-import org.apache.commons.vfs.FileObject;
+import javax.swing.filechooser.FileView;
 
+import org.apache.commons.vfs2.FileObject;
 
 /**
  * A file filter for file objects based on java.io.FileFilter

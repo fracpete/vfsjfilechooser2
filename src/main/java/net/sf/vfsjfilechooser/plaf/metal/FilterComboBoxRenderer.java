@@ -24,7 +24,6 @@ import java.awt.Component;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JList;
 
-
 /**
  * Renderer for the file filters drop down list
  * @author Yves Zoundi <yveszoundi at users dot sf dot net>

@@ -25,7 +25,7 @@ import net.sf.vfsjfilechooser.filechooser.PopupHandler;
 import net.sf.vfsjfilechooser.utils.VFSResources;
 import net.sf.vfsjfilechooser.utils.VFSUtils;
 
-import org.apache.commons.vfs.FileObject;
+import org.apache.commons.vfs2.FileObject;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -355,7 +355,7 @@ public final class ConnectionDialog extends JDialog
                                         return;
                                     }
 
-                                    fileChooser.setCurrentDirectory(fo);
+                                    fileChooser.setCurrentDirectoryObject(fo);
 
                                     setCursor(Cursor.getDefaultCursor());
 

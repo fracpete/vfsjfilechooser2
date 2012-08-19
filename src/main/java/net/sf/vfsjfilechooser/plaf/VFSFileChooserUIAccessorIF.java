@@ -20,7 +20,7 @@ package net.sf.vfsjfilechooser.plaf;
 import net.sf.vfsjfilechooser.VFSJFileChooser;
 import net.sf.vfsjfilechooser.plaf.basic.BasicVFSDirectoryModel;
 
-import org.apache.commons.vfs.FileObject;
+import org.apache.commons.vfs2.FileObject;
 
 import java.awt.event.MouseListener;
 

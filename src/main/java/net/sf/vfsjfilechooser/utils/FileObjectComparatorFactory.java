@@ -18,7 +18,7 @@
  */
 package net.sf.vfsjfilechooser.utils;
 
-import org.apache.commons.vfs.FileObject;
+import org.apache.commons.vfs2.FileObject;
 
 import java.util.Comparator;
 

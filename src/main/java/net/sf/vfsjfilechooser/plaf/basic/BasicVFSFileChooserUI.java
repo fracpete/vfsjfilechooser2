@@ -1,6 +1,7 @@
 /*
  *
  * Copyright (C) 2008-2009 Yves Zoundi
+ * Copyright (C) 2012 University of Waikato, Hamilton, NZ (made GlobFilter functional)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,22 +18,6 @@
  */
 package net.sf.vfsjfilechooser.plaf.basic;
 
-import net.sf.vfsjfilechooser.VFSJFileChooser;
-import net.sf.vfsjfilechooser.VFSJFileChooser.DIALOG_TYPE;
-import net.sf.vfsjfilechooser.VFSJFileChooser.SELECTION_MODE;
-import net.sf.vfsjfilechooser.filechooser.AbstractVFSFileFilter;
-import net.sf.vfsjfilechooser.filechooser.AbstractVFSFileSystemView;
-import net.sf.vfsjfilechooser.filechooser.AbstractVFSFileView;
-import net.sf.vfsjfilechooser.filepane.VFSFilePane;
-import net.sf.vfsjfilechooser.plaf.AbstractVFSFileChooserUI;
-import net.sf.vfsjfilechooser.utils.SwingCommonsUtilities;
-import net.sf.vfsjfilechooser.utils.VFSUtils;
-import net.sf.vfsjfilechooser.utils.VFSResources;
-
-import org.apache.commons.vfs.FileObject;
-import org.apache.commons.vfs.FileSystemException;
-import org.apache.commons.vfs.provider.local.LocalFile;
-
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.KeyboardFocusManager;
@@ -40,12 +25,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
 import java.beans.PropertyChangeListener;
-
 import java.io.File;
 import java.io.IOException;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -74,6 +56,22 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.plaf.ActionMapUIResource;
 
+import net.sf.vfsjfilechooser.VFSJFileChooser;
+import net.sf.vfsjfilechooser.VFSJFileChooser.DIALOG_TYPE;
+import net.sf.vfsjfilechooser.VFSJFileChooser.SELECTION_MODE;
+import net.sf.vfsjfilechooser.filechooser.AbstractVFSFileFilter;
+import net.sf.vfsjfilechooser.filechooser.AbstractVFSFileSystemView;
+import net.sf.vfsjfilechooser.filechooser.AbstractVFSFileView;
+import net.sf.vfsjfilechooser.filepane.VFSFilePane;
+import net.sf.vfsjfilechooser.plaf.AbstractVFSFileChooserUI;
+import net.sf.vfsjfilechooser.utils.SwingCommonsUtilities;
+import net.sf.vfsjfilechooser.utils.VFSResources;
+import net.sf.vfsjfilechooser.utils.VFSUtils;
+
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.vfs2.FileObject;
+import org.apache.commons.vfs2.FileSystemException;
+import org.apache.commons.vfs2.provider.local.LocalFile;
 
 /**
  * The BasicFileChooserUI implementation using commons-vfs based on Swing BasicFileChooserUI
@@ -746,7 +744,7 @@ public class BasicVFSFileChooserUI extends AbstractVFSFileChooserUI
     {
         VFSJFileChooser fc = getFileChooser();
 
-        fc.setCurrentDirectory(dir);
+        fc.setCurrentDirectoryObject(dir);
 
         if ((fc.getFileSelectionMode() == SELECTION_MODE.FILES_AND_DIRECTORIES) &&
                 fc.getFileSystemView().isFileSystem(dir))
@@ -887,7 +885,7 @@ public class BasicVFSFileChooserUI extends AbstractVFSFileChooserUI
                         }
                     }
 
-                    chooser.setSelectedFiles(files);
+                    chooser.setSelectedFileObjects(files);
                 }
                 else
                 {
@@ -901,7 +899,7 @@ public class BasicVFSFileChooserUI extends AbstractVFSFileChooserUI
 
                         if (usesSingleFilePane)
                         {
-                            chooser.setSelectedFile(null);
+                            chooser.setSelectedFileObject(null);
                         }
                     }
                     else
@@ -910,7 +908,7 @@ public class BasicVFSFileChooserUI extends AbstractVFSFileChooserUI
 
                         if (file != null)
                         {
-                            chooser.setSelectedFile(file);
+                            chooser.setSelectedFileObject(file);
                         }
                     }
                 }
@@ -982,7 +980,7 @@ public class BasicVFSFileChooserUI extends AbstractVFSFileChooserUI
             }
 
             VFSJFileChooser fc = getFileChooser();
-            FileObject currentDirectory = fc.getCurrentDirectory();
+            FileObject currentDirectory = fc.getCurrentDirectoryObject();
 
             if (!VFSUtils.exists(currentDirectory))
             {
@@ -1003,11 +1001,11 @@ public class BasicVFSFileChooserUI extends AbstractVFSFileChooserUI
 
                 if (fc.isMultiSelectionEnabled())
                 {
-                    fc.setSelectedFiles(new FileObject[] { newFolder });
+                    fc.setSelectedFileObjects(new FileObject[] { newFolder });
                 }
                 else
                 {
-                    fc.setSelectedFile(newFolder);
+                    fc.setSelectedFileObject(newFolder);
                 }
             }
             catch (IOException exc)
@@ -1037,7 +1035,7 @@ public class BasicVFSFileChooserUI extends AbstractVFSFileChooserUI
         public void actionPerformed(ActionEvent e)
         {
             VFSJFileChooser fc = getFileChooser();
-            FileObject currentDir = fc.getCurrentDirectory();
+            FileObject currentDir = fc.getCurrentDirectoryObject();
 
             if (currentDir instanceof LocalFile)
             {
@@ -1047,7 +1045,7 @@ public class BasicVFSFileChooserUI extends AbstractVFSFileChooserUI
             {
                 try
                 {
-                    changeDirectory(fc.getCurrentDirectory().getFileSystem()
+                    changeDirectory(fc.getCurrentDirectoryObject().getFileSystem()
                                       .getRoot());
                 }
                 catch (FileSystemException ex)
@@ -1111,7 +1109,7 @@ public class BasicVFSFileChooserUI extends AbstractVFSFileChooserUI
 
             String filename = getFileName();
             AbstractVFSFileSystemView fs = chooser.getFileSystemView();
-            FileObject dir = chooser.getCurrentDirectory();
+            FileObject dir = chooser.getCurrentDirectoryObject();
 
             if (filename != null)
             {
@@ -1280,15 +1278,15 @@ public class BasicVFSFileChooserUI extends AbstractVFSFileChooserUI
                         selectedFiles = new FileObject[] { selectedFile };
                     }
 
-                    chooser.setSelectedFiles(selectedFiles);
+                    chooser.setSelectedFileObjects(selectedFiles);
                     // Do it again. This is a fix for bug 4949273 to force the
                     // selected value in case the ListSelectionModel clears it
                     // for non-existing file names.
-                    chooser.setSelectedFiles(selectedFiles);
+                    chooser.setSelectedFileObjects(selectedFiles);
                 }
                 else
                 {
-                    chooser.setSelectedFile(selectedFile);
+                    chooser.setSelectedFileObject(selectedFile);
                 }
 
                 chooser.approveSelection();
@@ -1297,7 +1295,7 @@ public class BasicVFSFileChooserUI extends AbstractVFSFileChooserUI
             {
                 if (chooser.isMultiSelectionEnabled())
                 {
-                    chooser.setSelectedFiles(null);
+                    chooser.setSelectedFileObjects(null);
                 }
                 else
                 {
@@ -1314,7 +1312,6 @@ public class BasicVFSFileChooserUI extends AbstractVFSFileChooserUI
      */
     static class GlobFilter extends AbstractVFSFileFilter
     {
-        //  Pattern pattern;
         String globPattern;
 
         public void setPattern(String globPattern)
@@ -1324,7 +1321,13 @@ public class BasicVFSFileChooserUI extends AbstractVFSFileChooserUI
 
         public boolean accept(FileObject f)
         {
-            return true;
+	    if (f == null) {
+		return false;
+	    }
+	    if (VFSUtils.isDirectory(f)) {
+		return true;
+	    }
+	    return FilenameUtils.wildcardMatch(f.getName().getBaseName(), globPattern);
         }
 
         public String getDescription()
@@ -1354,7 +1357,7 @@ public class BasicVFSFileChooserUI extends AbstractVFSFileChooserUI
         public void actionPerformed(ActionEvent e)
         {
             VFSJFileChooser fc = getFileChooser();
-            fc.setCurrentDirectory(fc.getFileSystemView()
+            fc.setCurrentDirectoryObject(fc.getFileSystemView()
                                      .createFileObject(getDirectoryName()));
             fc.rescanCurrentDirectory();
         }

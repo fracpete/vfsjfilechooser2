@@ -2,6 +2,7 @@
  * A helper class to deal with commons-vfs file abstractions
  *
  * Copyright (C) 2008-2009 Yves Zoundi
+ * Copyright (C) 2012 University of Waikato, Hamilton, NZ
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,21 +30,21 @@ import java.util.List;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-import org.apache.commons.vfs.CacheStrategy;
-import org.apache.commons.vfs.FileObject;
-import org.apache.commons.vfs.FileSystemException;
-import org.apache.commons.vfs.FileSystemManager;
-import org.apache.commons.vfs.FileSystemOptions;
-import org.apache.commons.vfs.FileType;
-import org.apache.commons.vfs.impl.StandardFileSystemManager;
-import org.apache.commons.vfs.provider.sftp.SftpFileSystemConfigBuilder;
-
+import org.apache.commons.vfs2.CacheStrategy;
+import org.apache.commons.vfs2.FileObject;
+import org.apache.commons.vfs2.FileSystemException;
+import org.apache.commons.vfs2.FileSystemManager;
+import org.apache.commons.vfs2.FileSystemOptions;
+import org.apache.commons.vfs2.FileType;
+import org.apache.commons.vfs2.impl.StandardFileSystemManager;
+import org.apache.commons.vfs2.provider.sftp.SftpFileSystemConfigBuilder;
 
 /**
  * A helper class to deal with commons-vfs file abstractions
  * @author Yves Zoundi <yveszoundi at users dot sf dot net>
  * @author Jojada Tirtowidjojo <jojada at users.sourceforge.net> 
  * @author Stephan Schuster <stephanschuster at users.sourceforge.net>
+ * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version 0.0.5
  */
 public final class VFSUtils
@@ -582,5 +583,24 @@ public final class VFSUtils
         {
             return false;
         }
+    }
+
+    /**
+     * Turns a {@link FileObject} into a {@link File}.
+     * 
+     * @param fo	the file object to convert
+     * @return		the file or null if failed to convert
+     */
+    public static File toFile(FileObject fo) {
+      if (fo == null)
+	return null;
+      try {
+        return new File(fo.getName().getPath());
+      }
+      catch (Exception e) {
+        System.err.println("Failed to convert '" + fo + "' into file!");
+        e.printStackTrace();
+        return null;
+      }
     }
 }

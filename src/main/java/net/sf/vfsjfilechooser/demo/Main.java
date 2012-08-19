@@ -25,7 +25,7 @@ import net.sf.vfsjfilechooser.accessories.DefaultAccessoriesPanel;
 import net.sf.vfsjfilechooser.utils.VFSResources;
 import net.sf.vfsjfilechooser.utils.VFSUtils;
 
-import org.apache.commons.vfs.FileObject;
+import org.apache.commons.vfs2.FileObject;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -140,7 +140,7 @@ public final class Main extends JFrame implements Runnable
             if (answer == RETURN_TYPE.APPROVE)
             {
                 // retrieve the selected file
-                final FileObject aFileObject = fileChooser.getSelectedFile();
+                final FileObject aFileObject = fileChooser.getSelectedFileObject();
 
                 // remove authentication credentials from the file path
                 final String safeName = VFSUtils.getFriendlyName(aFileObject.toString());

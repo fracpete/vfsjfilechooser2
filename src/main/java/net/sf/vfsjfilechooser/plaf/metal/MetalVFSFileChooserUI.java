@@ -3,6 +3,7 @@
  * based on Swing MetalFileChooserUI
  *
  * Copyright (C) 2005-2008 Yves Zoundi
+ * Copyright (C) 2012 University of Waikato, Hamilton, NZ
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,23 +20,6 @@
  */
 package net.sf.vfsjfilechooser.plaf.metal;
 
-import net.sf.vfsjfilechooser.VFSJFileChooser;
-import net.sf.vfsjfilechooser.VFSJFileChooser.DIALOG_TYPE;
-import net.sf.vfsjfilechooser.VFSJFileChooser.SELECTION_MODE;
-import net.sf.vfsjfilechooser.constants.VFSJFileChooserConstants;
-import net.sf.vfsjfilechooser.filechooser.AbstractVFSFileFilter;
-import net.sf.vfsjfilechooser.filechooser.AbstractVFSFileSystemView;
-import net.sf.vfsjfilechooser.filechooser.PopupHandler;
-import net.sf.vfsjfilechooser.filepane.VFSFilePane;
-import net.sf.vfsjfilechooser.plaf.VFSFileChooserUIAccessorIF;
-import net.sf.vfsjfilechooser.plaf.basic.BasicVFSDirectoryModel;
-import net.sf.vfsjfilechooser.plaf.basic.BasicVFSFileChooserUI;
-import net.sf.vfsjfilechooser.utils.VFSResources;
-import net.sf.vfsjfilechooser.utils.VFSUtils;
-
-import org.apache.commons.vfs.FileObject;
-import org.apache.commons.vfs.FileSystemException;
-
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.ComponentOrientation;
@@ -47,17 +31,14 @@ import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseListener;
-
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import javax.accessibility.AccessibleContext;
-
 import javax.swing.AbstractAction;
 import javax.swing.AbstractListModel;
 import javax.swing.Action;
@@ -85,6 +66,22 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.plaf.ActionMapUIResource;
 import javax.swing.plaf.ComponentUI;
 
+import net.sf.vfsjfilechooser.VFSJFileChooser;
+import net.sf.vfsjfilechooser.VFSJFileChooser.DIALOG_TYPE;
+import net.sf.vfsjfilechooser.VFSJFileChooser.SELECTION_MODE;
+import net.sf.vfsjfilechooser.constants.VFSJFileChooserConstants;
+import net.sf.vfsjfilechooser.filechooser.AbstractVFSFileFilter;
+import net.sf.vfsjfilechooser.filechooser.AbstractVFSFileSystemView;
+import net.sf.vfsjfilechooser.filechooser.PopupHandler;
+import net.sf.vfsjfilechooser.filepane.VFSFilePane;
+import net.sf.vfsjfilechooser.plaf.VFSFileChooserUIAccessorIF;
+import net.sf.vfsjfilechooser.plaf.basic.BasicVFSDirectoryModel;
+import net.sf.vfsjfilechooser.plaf.basic.BasicVFSFileChooserUI;
+import net.sf.vfsjfilechooser.utils.VFSResources;
+import net.sf.vfsjfilechooser.utils.VFSUtils;
+
+import org.apache.commons.vfs2.FileObject;
+import org.apache.commons.vfs2.FileSystemException;
 
 /**
  * <p>The MetalFileChooserUI implementation using commons-VFS
@@ -434,11 +431,11 @@ public class MetalVFSFileChooserUI extends BasicVFSFileChooserUI
 
         if (fc.isMultiSelectionEnabled())
         {
-            setFileName(fileNameString(fc.getSelectedFiles()));
+            setFileName(fileNameString(fc.getSelectedFileObjects()));
         }
         else
         {
-            setFileName(fileNameString(fc.getSelectedFile()));
+            setFileName(fileNameString(fc.getSelectedFileObject()));
         }
 
         // Filetype label and combobox
@@ -473,6 +470,10 @@ public class MetalVFSFileChooserUI extends BasicVFSFileChooserUI
                     if (e.getKeyCode() == KeyEvent.VK_ENTER)
                     {
                         getApproveSelectionAction().actionPerformed(null);
+                    }
+                    else if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
+                    {
+                        getFileChooser().cancelSelection();
                     }
                 }
             });
@@ -794,13 +795,13 @@ public class MetalVFSFileChooserUI extends BasicVFSFileChooserUI
 
         clearIconCache();
 
-        FileObject currentDirectory = fc.getCurrentDirectory();
+        FileObject currentDirectory = fc.getCurrentDirectoryObject();
 
         if (currentDirectory != null)
         {
             directoryComboBoxModel.addItem(currentDirectory);
             directoryComboBox.setSelectedItem(currentDirectory);
-            fc.setCurrentDirectory(currentDirectory);
+            fc.setCurrentDirectoryObject(currentDirectory);
 
             if (fc.isDirectorySelectionEnabled() &&
                     !fc.isFileSelectionEnabled())
@@ -843,7 +844,7 @@ public class MetalVFSFileChooserUI extends BasicVFSFileChooserUI
         clearIconCache();
 
         VFSJFileChooser fc = getFileChooser();
-        FileObject currentDirectory = fc.getCurrentDirectory();
+        FileObject currentDirectory = fc.getCurrentDirectoryObject();
 
         if ((currentDirectory != null) && fc.isDirectorySelectionEnabled() &&
                 !fc.isFileSelectionEnabled() &&
@@ -1160,7 +1161,7 @@ public class MetalVFSFileChooserUI extends BasicVFSFileChooserUI
     public void valueChanged(ListSelectionEvent e)
     {
         VFSJFileChooser fc = getFileChooser();
-        FileObject f = fc.getSelectedFile();
+        FileObject f = fc.getSelectedFileObject();
 
         if (!e.getValueIsAdjusting() && (f != null) &&
                 !getFileChooser().isTraversable(f))
@@ -1312,7 +1313,7 @@ public class MetalVFSFileChooserUI extends BasicVFSFileChooserUI
         {
             // Add the current directory to the model, and make it the
             // selectedDirectory
-            FileObject dir = getFileChooser().getCurrentDirectory();
+            FileObject dir = getFileChooser().getCurrentDirectoryObject();
 
             if (dir != null)
             {
@@ -1566,7 +1567,7 @@ public class MetalVFSFileChooserUI extends BasicVFSFileChooserUI
 
             if (!getFileChooser().getCurrentDirectory().equals(folder))
             {
-                getFileChooser().setCurrentDirectory(folder);
+                getFileChooser().setCurrentDirectoryObject(folder);
             }
         }
     }

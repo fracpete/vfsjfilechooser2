@@ -17,7 +17,16 @@ Developers of the original project:
 The project is licensed under the Apache Software License, Version 2.0 (see
 LICENSE.txt for details).
 
-New project page:
+How to include the artifact in your project:
+
+    <dependency>
+      <groupId>com.googlecode.vfsjfilechooser2</groupId>
+      <artifactId>vfsjfilechooser2</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+
+Current project page:
   http://code.google.com/p/vfsjfilechooser2/
 
 

@@ -24,6 +24,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URI;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -595,7 +596,7 @@ public final class VFSUtils
       if (fo == null)
 	return null;
       try {
-        return new File(fo.getName().getURI().replace("file://", ""));
+        return new File(new URI(fo.getName().getURI().replace(" ", "%20")));
       }
       catch (Exception e) {
         System.err.println("Failed to convert '" + fo + "' into file!");

@@ -30,7 +30,7 @@ import java.util.logging.Logger;
  */
 public final class VFSResources
 {
-    private static final String BUNDLE_BASENAME = "net.sf.vfsjfilechooser.i18n.resources";
+    private static final String BUNDLE_BASENAME = "com.googlecode.vfsjfilechooser2.i18n.resources";
     private static ResourceBundle resourceBundle;
     private static final Logger LOG = Logger.getLogger(VFSResources.class.getName());
 

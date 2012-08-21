@@ -314,7 +314,7 @@ public class BasicVFSFileChooserUI extends AbstractVFSFileChooserUI
     private Icon lookupIcon(String path)
     {
         return new ImageIcon(getClass()
-                                 .getResource("/net/sf/vfsjfilechooser/plaf/icons/" +
+                                 .getResource("/com/googlecode/vfsjfilechooser2/plaf/icons/" +
                 path));
     }
 

@@ -18,12 +18,6 @@
 package com.googlecode.vfsjfilechooser2.accessories.bookmarks;
 
 
-import org.apache.commons.vfs2.FileObject;
-
-import com.googlecode.vfsjfilechooser2.VFSJFileChooser;
-import com.googlecode.vfsjfilechooser2.utils.VFSResources;
-import com.googlecode.vfsjfilechooser2.utils.VFSUtils;
-
 import java.awt.BorderLayout;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -43,6 +37,12 @@ import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+
+import org.apache.commons.vfs2.FileObject;
+
+import com.googlecode.vfsjfilechooser2.VFSJFileChooser;
+import com.googlecode.vfsjfilechooser2.utils.VFSResources;
+import com.googlecode.vfsjfilechooser2.utils.VFSUtils;
 
 
 /**
@@ -89,37 +89,37 @@ public class BookmarksManagerPanel extends JPanel
         bOpen = new JButton(VFSResources.getMessage(
                     "VFSJFileChooser.openButtonText"));
         bOpen.setIcon(new ImageIcon(getClass()
-                                        .getResource("/net/sf/vfsjfilechooser/plaf/icons/document-open.png")));
+                                        .getResource("/com/googlecode/vfsjfilechooser2/plaf/icons/document-open.png")));
         bOpen.setHorizontalAlignment(SwingConstants.LEFT);
 
         bAdd = new JButton(VFSResources.getMessage(
                     "VFSJFileChooser.addButtonText"));
         bAdd.setIcon(new ImageIcon(getClass()
-                                       .getResource("/net/sf/vfsjfilechooser/plaf/icons/list-add.png")));
+                                       .getResource("/com/googlecode/vfsjfilechooser2/plaf/icons/list-add.png")));
         bAdd.setHorizontalAlignment(SwingConstants.LEFT);
 
         bEdit = new JButton(VFSResources.getMessage(
                     "VFSJFileChooser.editButtonText"));
         bEdit.setIcon(new ImageIcon(getClass()
-                                        .getResource("/net/sf/vfsjfilechooser/plaf/icons/book_edit.png")));
+                                        .getResource("/com/googlecode/vfsjfilechooser2/plaf/icons/book_edit.png")));
         bEdit.setHorizontalAlignment(SwingConstants.LEFT);
 
         bDelete = new JButton(VFSResources.getMessage(
                     "VFSJFileChooser.deleteButtonText"));
         bDelete.setIcon(new ImageIcon(getClass()
-                                          .getResource("/net/sf/vfsjfilechooser/plaf/icons/list-remove.png")));
+                                          .getResource("/com/googlecode/vfsjfilechooser2/plaf/icons/list-remove.png")));
         bDelete.setHorizontalAlignment(SwingConstants.LEFT);
 
         bMoveUp = new JButton(VFSResources.getMessage(
                     "VFSJFileChooser.moveUpButtonText"));
         bMoveUp.setIcon(new ImageIcon(getClass()
-                                          .getResource("/net/sf/vfsjfilechooser/plaf/icons/go-up.png")));
+                                          .getResource("/com/googlecode/vfsjfilechooser2/plaf/icons/go-up.png")));
         bMoveUp.setHorizontalAlignment(SwingConstants.LEFT);
 
         bMoveDown = new JButton(VFSResources.getMessage(
                     "VFSJFileChooser.moveDownButtonText"));
         bMoveDown.setIcon(new ImageIcon(getClass()
-                                            .getResource("/net/sf/vfsjfilechooser/plaf/icons/go-down.png")));
+                                            .getResource("/com/googlecode/vfsjfilechooser2/plaf/icons/go-down.png")));
         bMoveDown.setHorizontalAlignment(SwingConstants.LEFT);
 
         final ActionHandler ah = new ActionHandler();

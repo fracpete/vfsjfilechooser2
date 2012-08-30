@@ -18,19 +18,10 @@
 package com.googlecode.vfsjfilechooser2.accessories;
 
 
-import org.apache.commons.vfs2.FileObject;
-
-import com.googlecode.vfsjfilechooser2.VFSJFileChooser;
-import com.googlecode.vfsjfilechooser2.accessories.bookmarks.BookmarksDialog;
-import com.googlecode.vfsjfilechooser2.accessories.connection.ConnectionDialog;
-import com.googlecode.vfsjfilechooser2.utils.SwingCommonsUtilities;
-import com.googlecode.vfsjfilechooser2.utils.VFSResources;
-
 import java.awt.BorderLayout;
 import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
-
 import java.net.URL;
 
 import javax.swing.AbstractAction;
@@ -48,6 +39,14 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 
+import org.apache.commons.vfs2.FileObject;
+
+import com.googlecode.vfsjfilechooser2.VFSJFileChooser;
+import com.googlecode.vfsjfilechooser2.accessories.bookmarks.BookmarksDialog;
+import com.googlecode.vfsjfilechooser2.accessories.connection.ConnectionDialog;
+import com.googlecode.vfsjfilechooser2.utils.SwingCommonsUtilities;
+import com.googlecode.vfsjfilechooser2.utils.VFSResources;
+
 
 /**
  * <p>The default accessory panel you could add
@@ -58,7 +57,7 @@ import javax.swing.border.EtchedBorder;
 @SuppressWarnings("serial")
 public final class DefaultAccessoriesPanel extends JComponent
 {
-    private static final String RES_PATH = "/net/sf/vfsjfilechooser/plaf/icons/";
+    private static final String RES_PATH = "/com/googlecode/vfsjfilechooser2/plaf/icons/";
     private JButton bookmarksButton;
     private JButton localFSButton;
     private JButton connectionsButton;

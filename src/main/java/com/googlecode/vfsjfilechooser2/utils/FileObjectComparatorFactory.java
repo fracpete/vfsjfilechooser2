@@ -18,9 +18,9 @@
  */
 package com.googlecode.vfsjfilechooser2.utils;
 
-import org.apache.commons.vfs2.FileObject;
-
 import java.util.Comparator;
+
+import org.apache.commons.vfs2.FileObject;
 
 
 /**
@@ -152,10 +152,7 @@ public final class FileObjectComparatorFactory
         {
             try
             {
-                final long diff = a.getContent().getSize() -
-                    b.getContent().getSize();
-
-                int result = (int) diff;
+                int result = new Long(a.getContent().getSize()).compareTo(new Long(b.getContent().getSize()));
 
                 if (!isSortAsc)
                 {
@@ -184,10 +181,7 @@ public final class FileObjectComparatorFactory
         {
             try
             {
-                final long diff = a.getContent().getLastModifiedTime() -
-                    b.getContent().getLastModifiedTime();
-
-                int result = (int) diff;
+                int result = new Long(a.getContent().getLastModifiedTime()).compareTo(new Long(b.getContent().getLastModifiedTime()));
 
                 if (!isSortAsc)
                 {

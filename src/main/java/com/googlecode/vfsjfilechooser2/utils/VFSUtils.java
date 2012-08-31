@@ -2,7 +2,6 @@
  * A helper class to deal with commons-vfs file abstractions
  *
  * Copyright (C) 2008-2009 Yves Zoundi
- * Copyright (C) 2012 University of Waikato, Hamilton, NZ
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +23,6 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.URI;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -584,24 +582,5 @@ public final class VFSUtils
         {
             return false;
         }
-    }
-
-    /**
-     * Turns a {@link FileObject} into a {@link File}.
-     * 
-     * @param fo	the file object to convert
-     * @return		the file or null if failed to convert
-     */
-    public static File toFile(FileObject fo) {
-      if (fo == null)
-	return null;
-      try {
-        return new File(new URI(fo.getName().getURI().replace(" ", "%20")));
-      }
-      catch (Exception e) {
-        System.err.println("Failed to convert '" + fo + "' into file!");
-        e.printStackTrace();
-        return null;
-      }
     }
 }

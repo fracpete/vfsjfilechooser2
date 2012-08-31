@@ -84,7 +84,6 @@ import javax.swing.event.EventListenerList;
 import javax.swing.filechooser.FileSystemView;
 import javax.swing.filechooser.FileView;
 
-
 import org.apache.commons.vfs2.FileFilter;
 import org.apache.commons.vfs2.FileObject;
 
@@ -93,6 +92,8 @@ import com.googlecode.vfsjfilechooser2.filechooser.AbstractVFSFileSystemView;
 import com.googlecode.vfsjfilechooser2.filechooser.AbstractVFSFileView;
 import com.googlecode.vfsjfilechooser2.plaf.AbstractVFSFileChooserUI;
 import com.googlecode.vfsjfilechooser2.plaf.metal.MetalVFSFileChooserUI;
+import com.googlecode.vfsjfilechooser2.utils.DefaultFileObjectConverter;
+import com.googlecode.vfsjfilechooser2.utils.FileObjectConverter;
 import com.googlecode.vfsjfilechooser2.utils.VFSUtils;
 
 /**
@@ -140,6 +141,9 @@ public class VFSJFileChooser extends JComponent implements Accessible
     private FileObject selectedFile = null;
     private FileObject[] selectedFiles;
 
+    // for converting files
+    protected FileObjectConverter fileObjectConverter = new DefaultFileObjectConverter();
+    
     // Accessibility support 
     protected AccessibleContext m_accessibleContext = null;
 
@@ -382,7 +386,7 @@ public class VFSJFileChooser extends JComponent implements Accessible
      */
     public File getSelectedFile()
     {
-        return VFSUtils.toFile(selectedFile);
+        return fileObjectConverter.convertFileObject(selectedFile);
     }
 
     /**
@@ -462,7 +466,7 @@ public class VFSJFileChooser extends JComponent implements Accessible
       FileObject[] objects = getSelectedFileObjects();
       File[] files = new File[objects.length];
       for (int i = 0; i < objects.length; i++)
-	files[i] = VFSUtils.toFile(objects[i]);
+	files[i] = fileObjectConverter.convertFileObject(objects[i]);
       return files;
     }
 
@@ -534,7 +538,7 @@ public class VFSJFileChooser extends JComponent implements Accessible
      */
     public File getCurrentDirectory()
     {
-      return VFSUtils.toFile(currentDirectory);
+      return fileObjectConverter.convertFileObject(currentDirectory);
     }
 
     /**
@@ -1662,6 +1666,26 @@ public class VFSJFileChooser extends JComponent implements Accessible
     }
 
     /**
+     * Sets the converter for {@link FileObject} objects.
+     * 
+     * @param value the converter
+     */
+    public void setFileObjectConverter(FileObjectConverter value) 
+    {
+      	fileObjectConverter = value;
+    }
+    
+    /**
+     * Returns the current converter for {@link FileObject} objects.
+     * 
+     * @return the converter
+     */
+    public FileObjectConverter getFileObjectConverter()
+    {
+      	return fileObjectConverter;
+    }
+    
+    /**
       * Returns the filename.
       * @param fileObject the <code>File</code>
       * @return the <code>String</code> containing the filename for
@@ -1990,7 +2014,7 @@ public class VFSJFileChooser extends JComponent implements Accessible
 
         if (defaultUI == null)
         {
-            defaultUI = new MetalVFSFileChooserUI(this);
+            defaultUI = createDefaultUI();
             setUI(defaultUI);
         }
 
@@ -2033,6 +2057,16 @@ public class VFSJFileChooser extends JComponent implements Accessible
     public AbstractVFSFileChooserUI getUI()
     {
         return (AbstractVFSFileChooserUI) defaultUI;
+    }
+    
+    /**
+     * Returns the default UI to use.
+     * 
+     * @return the default UI
+     */
+    protected MetalVFSFileChooserUI createDefaultUI() 
+    {
+        return new MetalVFSFileChooserUI(this);
     }
 
     /**

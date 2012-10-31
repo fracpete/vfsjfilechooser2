@@ -439,6 +439,9 @@ public final class VFSUtils
      */
     public static FileObject getParentDirectory(FileObject fileObject)
     {
+        if (fileObject == null)
+            return fileObject;
+        
         try
         {
             return fileObject.getParent();
@@ -478,7 +481,7 @@ public final class VFSUtils
      * @param options The filesystem options
      * @return a file representation
      */
-    public static FileObject resolvFileObject(String filePath,
+    public static FileObject resolveFileObject(String filePath,
         FileSystemOptions options)
     {
         try

@@ -4,7 +4,7 @@
   <groupId>com.googlecode.vfsjfilechooser2</groupId>
   <artifactId>vfsjfilechooser2</artifactId>
   <packaging>jar</packaging>
-  <version>0.2.5-SNAPSHOT</version>
+  <version>0.2.5</version>
 
   <name>vfsjfilechooser2</name>
   <description>
@@ -80,7 +80,7 @@
     <connection>scm:hg:https://code.google.com/p/vfsjfilechooser2/</connection>
     <developerConnection>scm:hg:https://code.google.com/p/vfsjfilechooser2/</developerConnection>
     <url>http://code.google.com/p/vfsjfilechooser2</url>
-    <tag>HEAD</tag>
+    <tag>vfsjfilechooser2-0.2.5</tag>
   </scm>
 
   <dependencies>

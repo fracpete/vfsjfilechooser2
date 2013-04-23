@@ -96,7 +96,6 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import javax.swing.text.Position;
 
-
 import org.apache.commons.vfs2.FileObject;
 
 import com.googlecode.vfsjfilechooser2.VFSJFileChooser;
@@ -1371,6 +1370,7 @@ public final class VFSFilePane extends JPanel implements PropertyChangeListener
 
     public void rescanCurrentDirectory()
     {
+      	getModel().invalidateFileCache();
         getModel().validateFileCache();
     }
 
@@ -2363,11 +2363,14 @@ public final class VFSFilePane extends JPanel implements PropertyChangeListener
             if (i0 == i1)
             {
                 FileObject file = (FileObject) getModel().getElementAt(i0);
-
-                if (file.getName().equals(newFolderFile.getName()))
+                
+                if ((file != null) && (newFolderFile != null))
                 {
-                    new DelayedSelectionUpdater(file);
-                    newFolderFile = null;
+                  if (file.getName().equals(newFolderFile.getName()))
+                  {
+                      new DelayedSelectionUpdater(file);
+                      newFolderFile = null;
+                  }
                 }
             }
 

@@ -31,5 +31,5 @@ How to include the artifact in your project:
 
 Current project page:
 
-  http://code.google.com/p/vfsjfilechooser2/
+  https://github.com/fracpete/vfsjfilechooser2
 

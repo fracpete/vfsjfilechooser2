@@ -4,7 +4,7 @@
   <groupId>com.github.fracpete</groupId>
   <artifactId>vfsjfilechooser2</artifactId>
   <packaging>jar</packaging>
-  <version>0.2.6-SNAPSHOT</version>
+  <version>0.2.7-SNAPSHOT</version>
 
   <name>vfsjfilechooser2</name>
   <description>
@@ -158,18 +158,6 @@
               <followSymlinks>false</followSymlinks>
             </fileset>
           </filesets>
-        </configuration>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-release-plugin</artifactId>
-        <version>2.3.2</version>
-        <configuration>
-          <useReleaseProfile>false</useReleaseProfile>
-          <localCheckout>true</localCheckout>
-          <pushChanges>false</pushChanges>
-          <commitByProject>true</commitByProject>
         </configuration>
       </plugin>
 

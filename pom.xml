@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.googlecode.vfsjfilechooser2</groupId>
+  <groupId>com.github.fracpete</groupId>
   <artifactId>vfsjfilechooser2</artifactId>
   <packaging>jar</packaging>
   <version>0.2.6-SNAPSHOT</version>
@@ -15,7 +15,7 @@
   It has been updated to work with version 2.0 of the VFS Apache commons and
   includes a few bugfixes and enhancements. 
   </description>
-  <url>http://code.google.com/p/vfsjfilechooser2/</url>
+  <url>https://github.com/fracpete/vfsjfilechooser2</url>
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
@@ -39,7 +39,7 @@
       <organization>University of Waikato, CS department</organization>
       <organizationUrl>http://www.cs.waikato.ac.nz/</organizationUrl>
       <roles>
-        <role>maintainer of googlecode fork</role>
+        <role>maintainer of github fork</role>
       </roles>
     </developer>
     <developer>
@@ -77,9 +77,9 @@
   </developers>
   
   <scm>
-    <connection>scm:hg:https://code.google.com/p/vfsjfilechooser2/</connection>
-    <developerConnection>scm:hg:https://code.google.com/p/vfsjfilechooser2/</developerConnection>
-    <url>http://code.google.com/p/vfsjfilechooser2</url>
+    <connection>scm:git:https://github.com/fracpete/vfsjfilechooser2</connection>
+    <developerConnection>scm:git:https://github.com/fracpete/vfsjfilechooser2</developerConnection>
+    <url>https://github.com/fracpete/vfsjfilechooser2</url>
     <tag>HEAD</tag>
   </scm>
 

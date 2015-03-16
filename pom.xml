@@ -4,7 +4,7 @@
   <groupId>com.github.fracpete</groupId>
   <artifactId>vfsjfilechooser2</artifactId>
   <packaging>jar</packaging>
-  <version>0.2.7</version>
+  <version>0.2.8-SNAPSHOT</version>
 
   <name>vfsjfilechooser2</name>
   <description>

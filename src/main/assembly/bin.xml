@@ -21,12 +21,6 @@
 
   <files>
     <file>
-      <source>README.txt</source>
-      <outputDirectory>/</outputDirectory>
-      <filtered>true</filtered>
-    </file>
-
-    <file>
       <source>LICENSE.txt</source>
       <outputDirectory>/</outputDirectory>
       <filtered>false</filtered>

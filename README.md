@@ -1,102 +1,35 @@
-jfilechooser-bookmarks
-======================
+vfsjfilechooser2
+================
 
-This Swing component is intended to be used as _accessory_ for the JFileChooser widget. The user is able to add/delete/reorder directory bookmarks that are shown on the right-hand side when using the cross-platform _Metal_ look'n'feel. Clicking on a bookmark entry automatically switches to the directory represented by this bookmark.
+vfsjfilechooser2 is a mavenized fork of the dormant vfsjfilechooser project on
+sf.net (https://vfsjfilechooser.sourceforge.net/).
 
-## Maven ##
-You can use the following dependency in your `pom.xml`:
-```
-<dependency>
-  <groupId>com.googlecode.jfilechooser-bookmarks</groupId>
-  <artifactId>jfilechooser-bookmarks</artifactId>
-  <version>0.1.0</version>
-</dependency>
-```
+It is an alternative to Java's JFileChooser Swing component, which does not
+suffer from the JFileChooser's infamous "freezes" on Windows
+(http://bugs.sun.com/view_bug.do?bug_id=6372808).
 
-## Non-Maven ##
-You can download jar files from Maven Central:
+It has been updated to work with version 2.0 of the VFS Apache commons and
+includes a few bugfixes and enhancements. 
 
-[search for com.googlecode.jfilechooser-bookmarks](http://search.maven.org/#search|ga|1|g%3A%22com.googlecode.jfilechooser-bookmarks%22)
+Developers of the original project:
+ * stanlove
+ * stephanschuster
+ * worse
+ * yveszoundi
 
-## Default usage ##
-The following example uses the default panel. The bookmarks get saved as Java properties file in the user's home directory (`$HOME/.jfcb/FileChooserBookmarks.props`).
+The project is licensed under the Apache Software License, Version 2.0 (see
+LICENSE.txt for details).
 
-```
-import java.io.File;
-import javax.swing.JFileChooser;
-import com.googlecode.jfilechooserbookmarks.DefaultBookmarksPanel;
-
-public class Default {
-  public static void main(String[] args) throws Exception {
-    JFileChooser chooser = new JFileChooser();
-    chooser.setMultiSelectionEnabled(true);
-    chooser.setAcceptAllFileFilterUsed(true);
-    DefaultBookmarksPanel panel = new DefaultBookmarksPanel();
-    // the panel needs to know which JFileChooser to notify when the user
-    // selects a bookmark and the current directory needs to change
-    panel.setOwner(chooser);
-    chooser.setAccessory(panel);
-    int retVal = chooser.showOpenDialog(null);
-    if (retVal == JFileChooser.APPROVE_OPTION) {
-      for (File file: chooser.getSelectedFiles())
-        System.out.println(file);
-    }
-  }
-}
+How to include the artifact in your project:
+```xml
+    <dependency>
+      <groupId>com.googlecode.vfsjfilechooser2</groupId>
+      <artifactId>vfsjfilechooser2</artifactId>
+      <version>0.2.5</version>
+    </dependency>
 ```
 
-## Custom properties handler ##
-The following example uses a custom properties handler (and therefore custom factory and panel) for storing the bookmarks as Java properties in `$HOME/.jfcb.props`:
+Current project page:
 
-```
-import java.io.File;
-import javax.swing.JFileChooser;
-import com.googlecode.jfilechooserbookmarks.AbstractBookmarksPanel;
-import com.googlecode.jfilechooserbookmarks.AbstractFactory;
-import com.googlecode.jfilechooserbookmarks.AbstractPropertiesHandler;
-import com.googlecode.jfilechooserbookmarks.DefaultFactory;
-
-public class CustomHandler {
-  
-  public static class CustomPropertiesHandler
-    extends AbstractPropertiesHandler {
-
-    protected String getFilename() {
-      return System.getProperty("user.home") + File.separator + ".jfcb.props";
-    }
-  }
-
-  public static class CustomFactory
-    extends DefaultFactory {
-    
-    public AbstractPropertiesHandler newPropertiesHandler() {
-      return new CustomPropertiesHandler();
-    }
-  }
-  
-  public static class CustomFileChooserBookmarksPanel
-    extends AbstractBookmarksPanel {
-
-    protected AbstractFactory newFactory() {
-      return new CustomFactory();
-    }
-  }
-  
-  public static void main(String[] args) throws Exception {
-    JFileChooser chooser = new JFileChooser();
-    chooser.setMultiSelectionEnabled(true);
-    chooser.setAcceptAllFileFilterUsed(true);
-    CustomFileChooserBookmarksPanel panel = new CustomFileChooserBookmarksPanel();
-    // the panel needs to know which JFileChooser to notify when the user
-    // selects a bookmark and the current directory needs to change
-    panel.setOwner(chooser);
-    chooser.setAccessory(panel);
-    int retVal = chooser.showOpenDialog(null);
-    if (retVal == JFileChooser.APPROVE_OPTION) {
-      for (File file: chooser.getSelectedFiles())
-        System.out.println(file);
-    }
-  }
-}
-```
+  http://code.google.com/p/vfsjfilechooser2/
 

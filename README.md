@@ -23,9 +23,9 @@ LICENSE.txt for details).
 How to include the artifact in your project:
 ```xml
     <dependency>
-      <groupId>com.googlecode.vfsjfilechooser2</groupId>
+      <groupId>com.github.fracpete</groupId>
       <artifactId>vfsjfilechooser2</artifactId>
-      <version>0.2.5</version>
+      <version>0.2.6</version>
     </dependency>
 ```
 

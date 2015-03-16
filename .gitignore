@@ -1,0 +1,17 @@
+*.DS_Store
+*/target/*
+*/bin/*
+*~
+*.swp
+/build
+/target
+.classpath
+.project
+.settings
+*.aux
+*.log
+*.out
+*.pdf
+*.toc
+*.lof
+

@@ -2,7 +2,7 @@ vfsjfilechooser2
 ================
 
 vfsjfilechooser2 is a mavenized fork of the dormant vfsjfilechooser project on
-sf.net (https://vfsjfilechooser.sourceforge.net/).
+sf.net (https://sourceforge.net/projects/vfsjfilechooser/).
 
 It is an alternative to Java's JFileChooser Swing component, which does not
 suffer from the JFileChooser's infamous "freezes" on Windows

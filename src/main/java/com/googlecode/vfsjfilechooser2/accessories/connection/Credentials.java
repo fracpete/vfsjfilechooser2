@@ -2,6 +2,7 @@
  * Representation of users credentials
  *
  * Copyright (C) 2008-2009 Yves Zoundi
+ * Copyright (C) 2017 University of Waikato, Hamilton NZ
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -71,7 +72,17 @@ public class Credentials
                 if (password.length != 0)
                 {
                     sb.append(":");
-                    sb.append(this.password);
+		    for (int i = 0; i < this.password.length; i++)
+		    {
+		        if (this.password[i] == '@')
+			{
+			    sb.append("%40");
+			}
+		        else
+			{
+			    sb.append(this.password[i]);
+			}
+		    }
                 }
 
                 sb.append("@");

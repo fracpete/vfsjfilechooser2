@@ -19,6 +19,8 @@
  */
 package com.googlecode.vfsjfilechooser2.accessories.connection;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 /**
  * Representation of users credentials
@@ -55,8 +57,9 @@ public class Credentials
 
     /**
      * @return the complete path of the directory to browse
+     * @throws UnsupportedEncodingException 
      */
-    public String toFileObjectURL()
+    public String toFileObjectURL() throws UnsupportedEncodingException
     {
         StringBuilder sb = new StringBuilder();
 
@@ -65,37 +68,21 @@ public class Credentials
 
         if (!protocol.toLowerCase().equals("file"))
         {
-            if (!("".equals(username.trim())))
-            {
-                sb.append(this.username);
-
-                if (password.length != 0)
-                {
+            if (!("".equals(username.trim()))) {
+                sb.append(URLEncoder.encode(this.username,"UTF-8"));                
+                String pwd = new String(password);
+                if (pwd.length()>0) {
                     sb.append(":");
-		    for (int i = 0; i < this.password.length; i++)
-		    {
-		        if (this.password[i] == '@')
-			{
-			    sb.append("%40");
-			}
-		        else
-			{
-			    sb.append(this.password[i]);
-			}
-		    }
+                    sb.append(URLEncoder.encode(pwd,"UTF-8"));
                 }
-
                 sb.append("@");
             }
-
             sb.append(this.hostname);
-
             if (port != -1)
             {
                 sb.append(":").append(this.port);
             }
         }
-
         return sb.append(defaulRemotetPath).toString();
     }
 

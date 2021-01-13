@@ -90,17 +90,16 @@
       <version>4.13.1</version>
       <scope>test</scope>      
     </dependency>
-<dependency>
-    <groupId>com.hierynomus</groupId>
-    <artifactId>sshj</artifactId>
-    <version>0.27.0</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/commons-net/commons-net -->
-<dependency>
-    <groupId>commons-net</groupId>
-    <artifactId>commons-net</artifactId>
-    <version>3.7.2</version>
-</dependency>
+	<dependency>
+	    <groupId>com.hierynomus</groupId>
+	    <artifactId>sshj</artifactId>
+	    <version>0.27.0</version>
+	</dependency>
+	<dependency>
+	    <groupId>commons-net</groupId>
+	    <artifactId>commons-net</artifactId>
+	    <version>3.7.2</version>
+	</dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-vfs2</artifactId>

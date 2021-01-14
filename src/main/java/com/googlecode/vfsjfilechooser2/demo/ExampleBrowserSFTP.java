@@ -32,7 +32,7 @@ import com.googlecode.vfsjfilechooser2.utils.VFSUtils;
  * created 08.01.2021
  */
 
-public class TomBrowserSFTP {
+public class ExampleBrowserSFTP {
 
 	/**
 	 * @param args
@@ -40,7 +40,7 @@ public class TomBrowserSFTP {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// TODO Test 08.01.2021
-		TomBrowserSFTP ts=new TomBrowserSFTP();
+		ExampleBrowserSFTP ts=new ExampleBrowserSFTP();
 		ts.start();
 	}
 	// TODO Test 08.01.2021
@@ -49,9 +49,14 @@ public class TomBrowserSFTP {
 		String protocoll = "sftp";
 		Integer port = 22;
 		
-		String remoteHost = "myftpserver.mydomain.at";
+		
+		//change the remoteHost,password and username with your server credetials
+		String remoteHost = "sftpserver.example.com";
 		String password = "changeIT";
-		String username = "changeIT";		
+		String username = "changeIT";	
+		
+		
+		//change this with your requested baseDirectory
 		String path="/tomtest";
 	
 		try {
@@ -73,7 +78,6 @@ public class TomBrowserSFTP {
 //			fileChooser.setFileSelectionMode(SELECTION_MODE.FILES_AND_DIRECTORIES);
 			fileChooser.setCurrentDirectoryObject(remote);			
 			// show the file dialog
-			System.out.println("jetzt wird filechooseraufgerufen:");
 			
 			RETURN_TYPE answer = fileChooser.showOpenDialog(null);
 			

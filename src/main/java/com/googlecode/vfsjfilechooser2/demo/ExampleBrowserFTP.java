@@ -34,7 +34,7 @@ import com.googlecode.vfsjfilechooser2.utils.VFSUtils;
  * created 08.01.2021
  */
 
-public class TomBrowserFTP {
+public class ExampleBrowserFTP {
 
 	/**
 	 * @param args
@@ -42,7 +42,7 @@ public class TomBrowserFTP {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// TODO Test 08.01.2021
-		TomBrowserFTP ts=new TomBrowserFTP();
+		ExampleBrowserFTP ts=new ExampleBrowserFTP();
 		ts.start();
 	}
 	// TODO Test 08.01.2021
@@ -51,9 +51,12 @@ public class TomBrowserFTP {
 		String protocoll = "ftp";
 		Integer port = 21;
 		
-		String remoteHost = "myftpserver.mydomain.at";
+		//change the remoteHost,password and username with your server credetials
+		String remoteHost = "ftpserver.example.com";
 		String password = "changeIT";
-		String username = "changeIT";			
+		String username = "changeIT";		
+		
+		//change this with your requested baseDirectory
 		String path="/tomFolder";
 	
 		try {
@@ -74,7 +77,6 @@ public class TomBrowserFTP {
 			fileChooser.setFileSelectionMode(SELECTION_MODE.FILES_ONLY);
 //			fileChooser.setFileSelectionMode(SELECTION_MODE.FILES_AND_DIRECTORIES);
 			// show the file dialog
-			System.out.println("jetzt wird filechooser aufgerufen:");
 			RETURN_TYPE answer = fileChooser.showOpenDialog(null);
 			
 			// check if a file was selected

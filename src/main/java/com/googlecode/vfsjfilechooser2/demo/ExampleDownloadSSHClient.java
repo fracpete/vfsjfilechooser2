@@ -18,7 +18,7 @@ import net.schmizz.sshj.transport.verification.PromiscuousVerifier;
  * created 08.01.2021
  */
 
-public class TomDownloadSSHClient {
+public class ExampleDownloadSSHClient {
 
 	/**
 	 * @param args
@@ -26,7 +26,7 @@ public class TomDownloadSSHClient {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// TODO Test 08.01.2021
-		TomDownloadSSHClient ts=new TomDownloadSSHClient();
+		ExampleDownloadSSHClient ts=new ExampleDownloadSSHClient();
 		ts.start();
 	}
 	// TODO Test 08.01.2021
@@ -35,15 +35,13 @@ public class TomDownloadSSHClient {
 		String protocoll = "sftp";
 		Integer port = 22;
 	
-		
-		String remoteHost = "myftpserver.mydomain.at";
+		//change the remoteHost,password and username with your server credetials
+		String remoteHost = "ftpserver.example.com";
 		String password = "changeIT";
-		String username = "changeIT";			
+		String username = "changeIT";
 		
+		//change this with your local testFile
 		String localpath=System.getProperty("user.dir") + "/" + "temp_" + "vfsFile.pdf";
-//		String path="/ALLE/Adjustment/H350_30B/Adjustment_de-de/Programme/01_Squaring.f4g";
-//		String path="/ALLE/Adjustment/H350_30B/Adjustment_de-de/Programme/F4Integrate Overview for Techs1_GER.pdf";
-//		String path="/ALLE/Adjustment/H350_30B/Adjustment_de-de/Programme/F4Integrate Overview for Techs1_GER.pdf";
 		
 		String path = "/root/hallo tom.test";
 		

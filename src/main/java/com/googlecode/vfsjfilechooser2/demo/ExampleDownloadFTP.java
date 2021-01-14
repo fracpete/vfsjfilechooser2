@@ -31,7 +31,7 @@ import com.googlecode.vfsjfilechooser2.utils.VFSUtils;
  * created 08.01.2021
  */
 
-public class TestDownloadFTP {
+public class ExampleDownloadFTP {
 
 	/**
 	 * @param args
@@ -39,7 +39,7 @@ public class TestDownloadFTP {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// TODO Test 08.01.2021
-		TestDownloadFTP ts=new TestDownloadFTP();
+		ExampleDownloadFTP ts=new ExampleDownloadFTP();
 		ts.start();
 	}
 	// TODO Test 08.01.2021
@@ -47,7 +47,9 @@ public class TestDownloadFTP {
 		
 		String protocoll = "ftp";
 		Integer port = 21;
-		String remoteHost = "myftpserver.mydomain.at";
+		
+		//change the remoteHost,password and username with your server credetials
+		String remoteHost = "ftpserver.example.com";
 		String password = "changeIT";
 		String username = "changeIT";		
 		String remoteFile="/tom";
@@ -59,8 +61,13 @@ public class TestDownloadFTP {
 			FtpFileSystemConfigBuilder.getInstance().setPassiveMode(options, true);
 			
 			FileSystemManager manager = VFS.getManager();
+			
+			//change this with your local testFile
 		    FileObject local = manager.resolveFile(System.getProperty("user.dir") + "/" + "temp_"  + "vfsFile.pdf");
 		    FileObject local2 = manager.resolveFile(System.getProperty("user.dir") + "/" + "temp_"  + "vfsFile2FTP4.pdf");
+		    
+		    
+		    
 		    System.out.println(local.getURL());
 		    FileObject remote = manager.resolveFile("ftp://" + username + ":" + password + "@" + remoteHost + "/" + remoteFile,options);
 		    remote.copyFrom(local, Selectors.SELECT_SELF);

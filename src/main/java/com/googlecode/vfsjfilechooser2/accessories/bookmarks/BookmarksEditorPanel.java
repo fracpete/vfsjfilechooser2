@@ -33,6 +33,8 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.text.NumberFormat;
 import java.text.ParseException;
 
@@ -169,11 +171,21 @@ public final class BookmarksEditorPanel extends JPanel {
 				}
 
 				if (parser.getUsername() != null) {
-					usernameTextField.setText(parser.getUsername());
+					try {
+						usernameTextField.setText(URLDecoder.decode(parser.getUsername(),"UTF-8"));
+					} catch (UnsupportedEncodingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 
 				if (parser.getPassword() != null) {
-					passwordTextField.setText(parser.getPassword());
+					try {
+						passwordTextField.setText(URLDecoder.decode(parser.getPassword(),"UTF-8"));
+					} catch (UnsupportedEncodingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
 
@@ -395,29 +407,35 @@ public final class BookmarksEditorPanel extends JPanel {
 
 				Credentials credentials = credentialsBuilder.build();
 
-				String uri = credentials.toFileObjectURL();
+				String uri;
+				try {
+					uri = credentials.toFileObjectURL();
 
-		 		//sl start		
-				VFSURIValidator v = new VFSURIValidator();
-				if(! v.isValid(uri)){
-					//popup a warning 
-					JOptionPane.showMessageDialog(null,VFSResources.getMessage("VFSFileChooser.errBADURI"));
-					//System.out.println("BookmarksEditorPanel -- bad uri="+uri+"=");
+			 		//sl start		
+					VFSURIValidator v = new VFSURIValidator();
+					if(! v.isValid(uri)){
+						//popup a warning 
+						JOptionPane.showMessageDialog(null,VFSResources.getMessage("VFSFileChooser.errBADURI"));
+						//System.out.println("BookmarksEditorPanel -- bad uri="+uri+"=");
+					}
+					else {
+						//System.out.println("BookmarksEditorPanel -- good uri="+uri+"=");
+					}
+			 		//sl stop		
+					if (editIndex == -1) {
+						bookmarks.add(new TitledURLEntry(bookmarkName, uri));
+					} else {
+						bookmarks.setValueAt(bookmarkName, editIndex, 0);
+						bookmarks.setValueAt(uri, editIndex, 1);
+					}
+	
+					bookmarks.save(); // sl
+	
+					parentDialog.restoreDefaultView();
+				} catch (UnsupportedEncodingException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
-				else {
-					//System.out.println("BookmarksEditorPanel -- good uri="+uri+"=");
-				}
-		 		//sl stop		
-				if (editIndex == -1) {
-					bookmarks.add(new TitledURLEntry(bookmarkName, uri));
-				} else {
-					bookmarks.setValueAt(bookmarkName, editIndex, 0);
-					bookmarks.setValueAt(uri, editIndex, 1);
-				}
-
-				bookmarks.save(); // sl
-
-				parentDialog.restoreDefaultView();
 			}
 		});
 

@@ -22,6 +22,7 @@ package com.googlecode.vfsjfilechooser2.utils;
 import java.io.File;
 import java.io.Serializable;
 import java.net.URI;
+import java.net.URL;
 
 import org.apache.commons.vfs2.FileObject;
 
@@ -48,7 +49,7 @@ public class DefaultFileObjectConverter
     if (file == null)
 	return null;
     try {
-      return new File(new URI(file.getName().getURI().replace(" ", "%20")));
+      return new File(new URI(file.getName().getURI().replace(" ", "%20")).toString());
     }
     catch (Exception e) {
       System.err.println("Failed to convert '" + file + "' into file!");

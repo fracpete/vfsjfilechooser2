@@ -3,27 +3,16 @@
  */
 package com.googlecode.vfsjfilechooser2.demo;
 
-import java.net.URL;
+import java.net.URI;
 import java.net.URLEncoder;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
-import org.apache.commons.httpclient.URI;
 import org.apache.commons.vfs2.FileObject;
 import org.apache.commons.vfs2.FileSystemManager;
-import org.apache.commons.vfs2.FileSystemOptions;
-import org.apache.commons.vfs2.Selectors;
 import org.apache.commons.vfs2.VFS;
-import org.apache.commons.vfs2.provider.UriParser;
-import org.apache.commons.vfs2.provider.ftp.FtpFileObject;
-import org.apache.commons.vfs2.provider.sftp.SftpFileProvider;
-import org.apache.commons.vfs2.provider.sftp.SftpFileSystem;
-import org.apache.commons.vfs2.provider.sftp.SftpFileSystemConfigBuilder;
 
 import com.googlecode.vfsjfilechooser2.VFSJFileChooser;
 import com.googlecode.vfsjfilechooser2.VFSJFileChooser.RETURN_TYPE;
 import com.googlecode.vfsjfilechooser2.VFSJFileChooser.SELECTION_MODE;
-import com.googlecode.vfsjfilechooser2.accessories.DefaultAccessoriesPanel;
 import com.googlecode.vfsjfilechooser2.utils.VFSUtils;
 
 /**
@@ -62,7 +51,7 @@ public class ExampleBrowserSFTP {
 		try {
 			String userInfo = URLEncoder.encode(username,"UTF-8") + ":" + URLEncoder.encode(password,"UTF-8");
 //			String userInfo =URLEncoder.encode(passwd,"UTF-8") + ":" + URLEncoder.encode(user,"UTF-8") ;
-			URI uri=new URI(protocoll, userInfo, remoteHost, port,path);
+			URI uri=new URI(protocoll, userInfo, remoteHost, port,path,null,null);
 			// create a file chooser
 			FileSystemManager manager = VFS.getManager();
 			FileObject remote = manager.resolveFile(uri.toString());

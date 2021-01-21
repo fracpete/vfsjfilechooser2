@@ -3,27 +3,12 @@
  */
 package com.googlecode.vfsjfilechooser2.demo;
 
-import java.net.URL;
-import java.net.URLEncoder;
-
-import org.apache.commons.httpclient.URI;
-import org.apache.commons.httpclient.util.URIUtil;
 import org.apache.commons.vfs2.FileObject;
 import org.apache.commons.vfs2.FileSystemManager;
 import org.apache.commons.vfs2.FileSystemOptions;
 import org.apache.commons.vfs2.Selectors;
 import org.apache.commons.vfs2.VFS;
-import org.apache.commons.vfs2.provider.UriParser;
 import org.apache.commons.vfs2.provider.ftp.FtpFileSystemConfigBuilder;
-import org.apache.commons.vfs2.provider.sftp.SftpFileProvider;
-import org.apache.commons.vfs2.provider.sftp.SftpFileSystem;
-import org.apache.commons.vfs2.provider.sftp.SftpFileSystemConfigBuilder;
-
-import com.googlecode.vfsjfilechooser2.VFSJFileChooser;
-import com.googlecode.vfsjfilechooser2.VFSJFileChooser.RETURN_TYPE;
-import com.googlecode.vfsjfilechooser2.VFSJFileChooser.SELECTION_MODE;
-import com.googlecode.vfsjfilechooser2.accessories.DefaultAccessoriesPanel;
-import com.googlecode.vfsjfilechooser2.utils.VFSUtils;
 
 /**
  * @author f3thomas

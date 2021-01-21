@@ -5,9 +5,6 @@ package com.googlecode.vfsjfilechooser2.demo;
 
 import java.io.IOException;
 
-import org.apache.commons.httpclient.util.URIUtil;
-import org.apache.commons.vfs2.provider.UriParser;
-
 import net.schmizz.sshj.SSHClient;
 import net.schmizz.sshj.sftp.SFTPClient;
 import net.schmizz.sshj.transport.verification.PromiscuousVerifier;

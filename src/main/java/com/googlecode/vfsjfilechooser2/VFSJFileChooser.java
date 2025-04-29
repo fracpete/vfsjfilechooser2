@@ -2215,4 +2215,12 @@ public class VFSJFileChooser extends JComponent implements Accessible
         /** files and directories selection */
         FILES_AND_DIRECTORIES;
     }
+
+    public static void main(String[] args) throws Exception {
+        VFSJFileChooser chooser = new VFSJFileChooser();
+        RETURN_TYPE retVal = chooser.showOpenDialog(null);
+        System.out.println(retVal);
+        if (retVal == RETURN_TYPE.APPROVE)
+            System.out.println(chooser.getSelectedFileObject());
+    }
 }

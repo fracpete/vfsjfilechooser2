@@ -43,7 +43,7 @@ import javax.swing.filechooser.FileView;
 
 /**
  * The implementation using commons-vfs based on Swing FileSystemView
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.1
  */
 public abstract class AbstractVFSFileSystemView
@@ -227,17 +227,16 @@ public abstract class AbstractVFSFileSystemView
 
     /**
      * Creates a new folder with a default folder name.
-     * @param containingDir
-     * @return
-     * @throws org.apache.commons.vfs.FileSystemException
+     * @param containingDir the dir
+     * @return the file object of the new folder
      */
     public abstract FileObject createNewFolder(FileObject containingDir)
         throws FileSystemException;
 
     /**
      * Returns whether a file is hidden or not.
-     * @param f
-     * @return
+     * @param f the file to check
+     * @return true if hidden
      */
     public boolean isHiddenFile(FileObject f)
     {
@@ -307,8 +306,8 @@ public abstract class AbstractVFSFileSystemView
      * Returns all root partitions on this system. For example, on
      * Windows, this would be the "Desktop" folder, while on DOS this
      * would be the A: through Z: drives.
-     * @param fo
-     * @return
+     * @param fo the file object
+     * @return the root partitions
      */
     public FileObject[] getRoots(FileObject fo)
     {
@@ -346,7 +345,7 @@ public abstract class AbstractVFSFileSystemView
     // implementation.
     /**
      *
-     * @return
+     * @return the home dir
      */
     public FileObject getHomeDirectory()
     {
@@ -367,9 +366,9 @@ public abstract class AbstractVFSFileSystemView
 
     /**
      * Returns a File object constructed in dir from the given filename.
-     * @param dir
-     * @param filename
-     * @return
+     * @param dir the dir
+     * @param filename the filename
+     * @return the generated file object
      */
     public FileObject createFileObject(FileObject dir, String filename)
     {
@@ -385,8 +384,8 @@ public abstract class AbstractVFSFileSystemView
 
     /**
      * Returns a File object constructed from the given path string.
-     * @param path
-     * @return
+     * @param path the path
+     * @return the created file object
      */
     public FileObject createFileObject(String path)
     {
@@ -395,9 +394,9 @@ public abstract class AbstractVFSFileSystemView
 
     /**
      * Gets the list of shown (i.e. not hidden) files.
-     * @param dir
-     * @param useFileHiding
-     * @return
+     * @param dir the dir
+     * @param useFileHiding whether to use file hiding
+     * @return the file objects
      */
     public FileObject[] getFiles(FileObject dir, boolean useFileHiding)
     {

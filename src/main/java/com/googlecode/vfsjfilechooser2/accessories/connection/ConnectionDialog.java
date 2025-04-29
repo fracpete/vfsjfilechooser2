@@ -67,8 +67,8 @@ import javax.swing.plaf.basic.BasicComboBoxRenderer;
 
 /**
  * The connection dialog
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
- * @author Jojada Tirtowidjojo <jojada at users.sourceforge.net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
+ * @author Jojada Tirtowidjojo (jojada at users.sourceforge.net)
  * @version 0.0.1
  */
 @SuppressWarnings("serial")
@@ -99,9 +99,9 @@ public final class ConnectionDialog extends JDialog
     private Thread currentWorker;
 
     /**
-     * @param parent
-     * @param m_dialog
-     * @param chooser
+     * @param parent the parent frame
+     * @param m_dialog the dialog
+     * @param chooser the file chooser
      */
     public ConnectionDialog(Frame parent, BookmarksDialog m_dialog,
         VFSJFileChooser chooser)

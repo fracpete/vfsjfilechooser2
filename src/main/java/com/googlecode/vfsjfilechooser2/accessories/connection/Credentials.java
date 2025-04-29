@@ -24,7 +24,7 @@ import java.net.URLEncoder;
 
 /**
  * Representation of users credentials
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.1
  */
 public class Credentials
@@ -57,7 +57,7 @@ public class Credentials
 
     /**
      * @return the complete path of the directory to browse
-     * @throws UnsupportedEncodingException 
+     * @throws UnsupportedEncodingException if encoding is not supported
      */
     public String toFileObjectURL() throws UnsupportedEncodingException
     {

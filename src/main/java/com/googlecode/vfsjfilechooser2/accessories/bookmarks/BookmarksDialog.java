@@ -32,7 +32,7 @@ import com.googlecode.vfsjfilechooser2.utils.VFSResources;
 
 /**
  * The bookmarks dialog
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.1
  */
 @SuppressWarnings("serial")

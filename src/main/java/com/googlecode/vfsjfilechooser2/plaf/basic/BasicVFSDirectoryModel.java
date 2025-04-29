@@ -50,7 +50,7 @@ import javax.swing.SwingUtilities;
 
 /**
  * The DirectoryModel implementation based on Swing BasicDirectoryModel
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>, Jason Harrop <jasonharrop at users.sourceforge.net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net), Jason Harrop (jasonharrop at users.sourceforge.net)
  * @version 0.0.1
  */
 @SuppressWarnings("serial")
@@ -71,7 +71,7 @@ public class BasicVFSDirectoryModel extends AbstractListModel
 
     /**
      *
-     * @param filechooser
+     * @param filechooser the filechooser
      */
     public BasicVFSDirectoryModel(VFSJFileChooser filechooser)
     {
@@ -82,7 +82,7 @@ public class BasicVFSDirectoryModel extends AbstractListModel
 
     /**
      *
-     * @param e
+     * @param e the event
      */
     public void propertyChange(PropertyChangeEvent e)
     {
@@ -135,7 +135,7 @@ public class BasicVFSDirectoryModel extends AbstractListModel
 
     /**
      *
-     * @return
+     * @return the files
      */
     public List<FileObject> getFiles()
     {
@@ -253,8 +253,8 @@ public class BasicVFSDirectoryModel extends AbstractListModel
 
     /**
      *
-     * @param o
-     * @return
+     * @param o the object to check
+     * @return true if contained
      */
     public boolean contains(Object o)
     {
@@ -262,8 +262,8 @@ public class BasicVFSDirectoryModel extends AbstractListModel
     }
 
     /**
-     * @param o
-     * @return
+     * @param o the object to get the index for
+     * @return the index
      */
     public int indexOf(Object o)
     {
@@ -279,7 +279,7 @@ public class BasicVFSDirectoryModel extends AbstractListModel
     }
 
     /**
-     * @param comparator
+     * @param comparator for sorting
      */
     public void sort(Comparator<FileObject> comparator)
     {
@@ -288,7 +288,7 @@ public class BasicVFSDirectoryModel extends AbstractListModel
 
     /**
      *
-     * @param v
+     * @param v the list to sort
      */
     protected void sort(List<FileObject> v)
     {
@@ -388,6 +388,9 @@ public class BasicVFSDirectoryModel extends AbstractListModel
      * Set the busy state for the model. The model is considered
      * busy when it is running a separate (interruptable)
      * thread in order to load the contents of a directory.
+     *
+     * @param busy the state
+     * @param fid the ID
      */
     private void setBusy(final boolean busy, int fid)
     {

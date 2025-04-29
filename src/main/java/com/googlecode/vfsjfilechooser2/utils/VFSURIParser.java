@@ -22,7 +22,7 @@ import com.googlecode.vfsjfilechooser2.accessories.connection.Protocol;
 
 /**
  * VFSURIParser class for bookmarks URIs
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @author Stan Love
  * @version 0.0.6
  */

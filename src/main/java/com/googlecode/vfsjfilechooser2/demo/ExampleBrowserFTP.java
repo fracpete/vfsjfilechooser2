@@ -27,7 +27,7 @@ import com.googlecode.vfsjfilechooser2.utils.VFSUtils;
 public class ExampleBrowserFTP {
 
 	/**
-	 * @param args
+	 * @param args the command-line args
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

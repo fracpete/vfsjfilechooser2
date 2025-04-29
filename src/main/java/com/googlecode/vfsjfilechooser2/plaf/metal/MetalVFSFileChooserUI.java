@@ -87,8 +87,8 @@ import com.googlecode.vfsjfilechooser2.utils.VFSUtils;
 /**
  * <p>The MetalFileChooserUI implementation using commons-VFS
  * based on Swing MetalFileChooserUI</p>
- * @author Yves Zoundi <yveszoundi at users dot sf dot net> 
- * @author Stephan Schuster <stephanschuster at users.sourceforge.net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
+ * @author Stephan Schuster (stephanschuster at users.sourceforge.net)
  * @version 0.0.1
  */
 public class MetalVFSFileChooserUI extends BasicVFSFileChooserUI
@@ -1118,8 +1118,8 @@ public class MetalVFSFileChooserUI extends BasicVFSFileChooserUI
     }
 
     /**
-     * @param fc
-     * @return
+     * @param fc the filechooser
+     * @return the renderer
      */
     protected ListCellRenderer createDirectoryComboBoxRenderer(
         VFSJFileChooser fc)
@@ -1131,8 +1131,8 @@ public class MetalVFSFileChooserUI extends BasicVFSFileChooserUI
     // DataModel for DirectoryComboxbox
     //
     /**
-     * @param fc
-     * @return
+     * @param fc the filechooser
+     * @return the combobox model
      */
     protected DirectoryComboBoxModel createDirectoryComboBoxModel(
         VFSJFileChooser fc)
@@ -1157,7 +1157,7 @@ public class MetalVFSFileChooserUI extends BasicVFSFileChooserUI
     }
 
     /**
-     * @param e
+     * @param e the event
      */
     public void valueChanged(ListSelectionEvent e)
     {
@@ -1186,7 +1186,7 @@ public class MetalVFSFileChooserUI extends BasicVFSFileChooserUI
     }
 
     /**
-     * @return
+     * @return the combobox model
      */
     public ComboBoxModel getCombo()
     {

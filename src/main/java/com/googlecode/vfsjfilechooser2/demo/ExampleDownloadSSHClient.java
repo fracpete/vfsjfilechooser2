@@ -18,7 +18,7 @@ import net.schmizz.sshj.transport.verification.PromiscuousVerifier;
 public class ExampleDownloadSSHClient {
 
 	/**
-	 * @param args
+	 * @param args the command-line args
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

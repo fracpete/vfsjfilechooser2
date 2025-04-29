@@ -110,7 +110,7 @@ import com.googlecode.vfsjfilechooser2.utils.VFSUtils;
 
 /**
  * This class is based on sun.swing.FilePane
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.1
  */
 @SuppressWarnings("serial")
@@ -358,7 +358,7 @@ public final class VFSFilePane extends JPanel implements PropertyChangeListener
         };
 
     /**
-     * @param fileChooserUIAccessor
+     * @param fileChooserUIAccessor the accessor
      */
     public VFSFilePane(VFSFileChooserUIAccessorIF fileChooserUIAccessor)
     {
@@ -381,7 +381,7 @@ public final class VFSFilePane extends JPanel implements PropertyChangeListener
     }
 
     /**
-     * @return
+     * @return the file chooser
      */
     protected VFSJFileChooser getFileChooser()
     {
@@ -389,7 +389,7 @@ public final class VFSFilePane extends JPanel implements PropertyChangeListener
     }
 
     /**
-     * @return
+     * @return the dir model
      */
     protected BasicVFSDirectoryModel getModel()
     {
@@ -397,7 +397,7 @@ public final class VFSFilePane extends JPanel implements PropertyChangeListener
     }
 
     /**
-     * @return
+     * @return the view type
      */
     public int getViewType()
     {
@@ -405,7 +405,7 @@ public final class VFSFilePane extends JPanel implements PropertyChangeListener
     }
 
     /**
-     * @param viewType
+     * @param viewType the view type
      */
     public void setViewType(int viewType)
     {
@@ -469,8 +469,8 @@ public final class VFSFilePane extends JPanel implements PropertyChangeListener
     }
 
     /**
-     * @param viewType
-     * @param viewPanel
+     * @param viewType the view type
+     * @param viewPanel the view panel
      */
     public void setViewPanel(int viewType, JPanel viewPanel)
     {
@@ -526,8 +526,8 @@ public final class VFSFilePane extends JPanel implements PropertyChangeListener
     }
 
     /**
-     * @param viewType
-     * @return
+     * @param viewType the view type
+     * @return the view type action
      */
     public Action getViewTypeAction(int viewType)
     {
@@ -720,8 +720,8 @@ public final class VFSFilePane extends JPanel implements PropertyChangeListener
     }
 
     /**
-     * @param map
-     * @param actions
+     * @param map the action map
+     * @param actions the actions to add
      */
     public static void addActionsToMap(ActionMap map, Action[] actions)
     {
@@ -1523,7 +1523,6 @@ public final class VFSFilePane extends JPanel implements PropertyChangeListener
      * Property to remember the directory that is currently selected in the UI.
      *
      * @return the value of the <code>directory</code> property
-     * @see javax.swing.plaf.basic.BasicFileChooserUI#setDirectory
      */
     protected FileObject getDirectory()
     {

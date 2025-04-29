@@ -17,7 +17,7 @@ import org.apache.commons.vfs2.VFS;
 public class ExampleDownloadSFTP {
 
 	/**
-	 * @param args
+	 * @param args the command-line args
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

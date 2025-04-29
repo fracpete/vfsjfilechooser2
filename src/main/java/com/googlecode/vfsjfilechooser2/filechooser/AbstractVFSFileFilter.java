@@ -23,21 +23,21 @@ import org.apache.commons.vfs2.FileObject;
 
 /**
  * A file filter for file objects based on java.io.FileFilter
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.1
  */
 public abstract class AbstractVFSFileFilter
 {
     /**
      * Whether the given file is accepted by this filter.
-     * @param f
-     * @return
+     * @param f the file
+     * @return true if to accept
      */
     public abstract boolean accept(FileObject f);
 
     /**
      * The description of this filter. For example: "JPG and GIF Images"
-     * @return
+     * @return the description
      * @see FileView#getName
      */
     public abstract String getDescription();

@@ -20,7 +20,7 @@ package com.googlecode.vfsjfilechooser2.accessories.bookmarks;
 
 /**
  * @author Dirk Moebius (JEdit)
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.1
  */
 public class TitledURLEntry implements Cloneable
@@ -30,8 +30,8 @@ public class TitledURLEntry implements Cloneable
     private int scrollBarPos = -1;
 
     /** new TitledURLEntry with title and url
-     * @param title
-     * @param url
+     * @param title the title
+     * @param url the url
      */
     public TitledURLEntry(String title, String url)
     {
@@ -40,9 +40,9 @@ public class TitledURLEntry implements Cloneable
     }
 
     /**
-     * @param title
-     * @param url
-     * @param scrPos
+     * @param title the title
+     * @param url the url
+     * @param scrPos the source position
      */
     public TitledURLEntry(String title, String url, int scrPos)
     {
@@ -51,7 +51,9 @@ public class TitledURLEntry implements Cloneable
     }
 
     /**
-     * @return
+     * Returns the title.
+     *
+     * @return the title
      */
     public String getTitle()
     {
@@ -59,7 +61,9 @@ public class TitledURLEntry implements Cloneable
     }
 
     /**
-     * @return
+     * Returns the URL.
+     *
+     * @return the url
      */
     public String getURL()
     {
@@ -67,7 +71,9 @@ public class TitledURLEntry implements Cloneable
     }
 
     /**
-     * @param title
+     * Sets the title.
+     *
+     * @param title the title
      */
     public void setTitle(String title)
     {
@@ -75,7 +81,9 @@ public class TitledURLEntry implements Cloneable
     }
 
     /**
-     * @param url
+     * Sets the URL.
+     *
+     * @param url the url
      */
     public void setURL(String url)
     {
@@ -83,7 +91,9 @@ public class TitledURLEntry implements Cloneable
     }
 
     /**
-     * @return
+     * Returns the scrollbar position.
+     *
+     * @return the position
      */
     public int getScrollBarPos()
     {
@@ -91,7 +101,9 @@ public class TitledURLEntry implements Cloneable
     }
 
     /**
-     * @param newPos
+     * Sets the scrollbar position.
+     *
+     * @param newPos the position
      */
     public void setScrollBarPos(int newPos)
     {

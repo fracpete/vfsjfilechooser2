@@ -25,7 +25,7 @@ import java.util.logging.Logger;
 
 /**
  * i18n messages
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.3
  */
 public final class VFSResources

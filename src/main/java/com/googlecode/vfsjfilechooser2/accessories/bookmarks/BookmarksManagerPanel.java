@@ -47,8 +47,8 @@ import com.googlecode.vfsjfilechooser2.utils.VFSUtils;
 
 /**
  * Bookmarks manager panel
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
- * @author Jojada Tirtowidjojo <jojada at users.sourceforge.net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
+ * @author Jojada Tirtowidjojo (jojada at users.sourceforge.net)
  * @version 0.0.1
  */
 @SuppressWarnings("serial")

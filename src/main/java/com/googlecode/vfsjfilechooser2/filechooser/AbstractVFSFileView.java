@@ -26,7 +26,7 @@ import javax.swing.Icon;
 
 /**
  * The fileview implementation using commons-vfs based on Swing FileView
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.1
  */
 public abstract class AbstractVFSFileView
@@ -34,8 +34,8 @@ public abstract class AbstractVFSFileView
     /**
      * The name of the file. Normally this would be simply
      * <code>f.getName()</code>.
-     * @param f
-     * @return
+     * @param f the file object
+     * @return the name
      */
     public String getName(FileObject f)
     {
@@ -46,8 +46,8 @@ public abstract class AbstractVFSFileView
      * A human readable description of the file. For example,
      * a file named <i>jag.jpg</i> might have a description that read:
      * "A JPEG image file of James Gosling's face".
-     * @param f
-     * @return
+     * @param f the file object
+     * @return the description
      */
     public String getDescription(FileObject f)
     {
@@ -58,8 +58,8 @@ public abstract class AbstractVFSFileView
      * A human readable description of the type of the file. For
      * example, a <code>jpg</code> file might have a type description of:
      * "A JPEG Compressed Image File"
-     * @param f
-     * @return
+     * @param f the file object
+     * @return the type description
      */
     public String getTypeDescription(FileObject f)
     {
@@ -68,8 +68,8 @@ public abstract class AbstractVFSFileView
 
     /**
      * The icon that represents this file in the <code>JFileChooser</code>.
-     * @param f
-     * @return
+     * @param f the file object
+     * @return the icon
      */
     public Icon getIcon(FileObject f)
     {
@@ -80,8 +80,8 @@ public abstract class AbstractVFSFileView
      * Whether the directory is traversable or not. This might be
      * useful, for example, if you want a directory to represent
      * a compound document and don't want the user to descend into it.
-     * @param f
-     * @return
+     * @param f the file object
+     * @return true if traversable
      */
     public Boolean isTraversable(FileObject f)
     {

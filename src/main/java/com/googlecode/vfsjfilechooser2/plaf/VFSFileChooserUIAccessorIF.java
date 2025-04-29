@@ -33,81 +33,81 @@ import javax.swing.event.ListSelectionListener;
 
 /**
  * Interface for a delegate class of the FileChooserUI
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.1
  */
 public interface VFSFileChooserUIAccessorIF
 {
     /**
      *
-     * @return
+     * @return the filechooser
      */
     public VFSJFileChooser getFileChooser();
 
     /**
      *
-     * @return
+     * @return the directory model
      */
     public BasicVFSDirectoryModel getModel();
 
     /**
      *
-     * @return
+     * @return the list
      */
     public JPanel createList();
 
     /**
     *
-    * @return
+    * @return the details view
     */
     public JPanel createDetailsView();
 
     /**
      *
-     * @return
+     * @return true if dir selected
      */
     public boolean isDirectorySelected();
 
     /**
      *
-     * @return
+     * @return the dir
      */
     public FileObject getDirectory();
 
     /**
      *
-     * @return
+     * @return the approve selection action
      */
     public Action getApproveSelectionAction();
 
     /**
      *
-     * @return
+     * @return the change to parent dir action
      */
     public Action getChangeToParentDirectoryAction();
 
     /**
      *
-     * @return
+     * @return the new folder action
      */
     public Action getNewFolderAction();
 
     /**
      *
-     * @param list
-     * @return
+     * @param list the list
+     * @return the new mouse listener
      */
     public MouseListener createDoubleClickListener(JList list);
 
     /**
      *
-     * @return
+     * @return the list selection listener
      */
     public ListSelectionListener createListSelectionListener();
 
     /**
      *
-     * @return
+     * @return true if to use shell folder
      */
     public boolean usesShellFolder();
 }

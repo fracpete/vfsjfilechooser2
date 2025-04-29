@@ -34,7 +34,7 @@ import javax.swing.table.TableCellRenderer;
 /**
  * Copy of some functions in SwingUtilities2
  * to avoid using sun proprietary classes
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  */
 public final class SwingCommonsUtilities
 {
@@ -68,11 +68,11 @@ public final class SwingCommonsUtilities
 
     /**
      *
-     * @param table
-     * @param row
-     * @param column
-     * @param p
-     * @return
+     * @param table the table
+     * @param row the row
+     * @param column the column
+     * @param p the point
+     * @return true if outside
      */
     public static boolean pointOutsidePrefSize(JTable table, int row,
         int column, Point p)
@@ -106,10 +106,10 @@ public final class SwingCommonsUtilities
 
     /**
      *
-     * @param list
-     * @param index
-     * @param point
-     * @return
+     * @param list the list
+     * @param index the index
+     * @param point the point
+     * @return true if within bounds
      */
     public static boolean pointIsInActualBounds(JList list, int index,
         Point point)
@@ -134,9 +134,9 @@ public final class SwingCommonsUtilities
 
     /**
      *
-     * @param list
-     * @param point
-     * @return
+     * @param list the list
+     * @param point the point
+     * @return the index
      */
     public static int loc2IndexFileList(JList list, Point point)
     {

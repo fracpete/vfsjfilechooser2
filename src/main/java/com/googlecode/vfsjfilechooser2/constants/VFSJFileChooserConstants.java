@@ -23,7 +23,7 @@ import java.io.File;
 
 /**
  * VFSJFileChooser constants
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.1
  */
 public final class VFSJFileChooserConstants

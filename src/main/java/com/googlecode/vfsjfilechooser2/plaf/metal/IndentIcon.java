@@ -26,7 +26,7 @@ import javax.swing.Icon;
 
 /**
  * Icon in the navigation panel (home, up, new, etc.)
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.1
  */
 final class IndentIcon implements Icon
@@ -36,7 +36,7 @@ final class IndentIcon implements Icon
     protected int depth = 0;
 
     /**
-     * @param icone
+     * @param icone the icon
      */
     public IndentIcon(final Icon icone)
     {

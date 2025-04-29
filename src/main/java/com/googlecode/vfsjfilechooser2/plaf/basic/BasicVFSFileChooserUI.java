@@ -76,7 +76,7 @@ import com.googlecode.vfsjfilechooser2.utils.VFSUtils;
 
 /**
  * The BasicFileChooserUI implementation using commons-vfs based on Swing BasicFileChooserUI
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.1
  */
 public class BasicVFSFileChooserUI extends AbstractVFSFileChooserUI
@@ -171,7 +171,7 @@ public class BasicVFSFileChooserUI extends AbstractVFSFileChooserUI
 
     /**
      *
-     * @param c
+     * @param c the component
      */
     @Override
     public void installUI(JComponent c)
@@ -192,7 +192,7 @@ public class BasicVFSFileChooserUI extends AbstractVFSFileChooserUI
 
     /**
      *
-     * @param c
+     * @param c the component
      */
     @Override
     public void uninstallUI(JComponent c)
@@ -214,7 +214,7 @@ public class BasicVFSFileChooserUI extends AbstractVFSFileChooserUI
 
     /**
      *
-     * @param fc
+     * @param fc the filechooser
      */
     public void installComponents(VFSJFileChooser fc)
     {
@@ -222,7 +222,7 @@ public class BasicVFSFileChooserUI extends AbstractVFSFileChooserUI
 
     /**
      *
-     * @param fc
+     * @param fc the filechooser
      */
     public void uninstallComponents(VFSJFileChooser fc)
     {

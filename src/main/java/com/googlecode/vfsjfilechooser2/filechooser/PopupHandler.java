@@ -34,7 +34,7 @@ import com.googlecode.vfsjfilechooser2.utils.VFSResources;
 
 /**
  * Right click popup menu handler
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.1
  */
 public final class PopupHandler extends MouseAdapter

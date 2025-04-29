@@ -2,6 +2,7 @@
  * File comparators factory
  *
  * Copyright (C) 2005-2008 Yves Zoundi
+ * Copyright (C) 2025 University of Waikato, Hamilton, NZ
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +27,7 @@ import org.apache.commons.vfs2.FileObject;
 /**
  *
  * File comparators factory
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.1
  *
  */
@@ -152,7 +153,7 @@ public final class FileObjectComparatorFactory
         {
             try
             {
-                int result = new Long(a.getContent().getSize()).compareTo(new Long(b.getContent().getSize()));
+                int result = Long.compare(a.getContent().getSize(), b.getContent().getSize());
 
                 if (!isSortAsc)
                 {
@@ -181,7 +182,7 @@ public final class FileObjectComparatorFactory
         {
             try
             {
-                int result = new Long(a.getContent().getLastModifiedTime()).compareTo(new Long(b.getContent().getLastModifiedTime()));
+                int result = Long.compare(a.getContent().getLastModifiedTime(), b.getContent().getLastModifiedTime());
 
                 if (!isSortAsc)
                 {

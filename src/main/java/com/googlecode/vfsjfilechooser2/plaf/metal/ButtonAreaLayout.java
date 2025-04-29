@@ -29,7 +29,7 @@ import java.awt.LayoutManager;
  * <code>FlowLayout</code>. It lays out all components from left to
  * right, flushed right. The widths of all components will be set
    * to the largest preferred size width.
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.1
  */
 final class ButtonAreaLayout implements LayoutManager

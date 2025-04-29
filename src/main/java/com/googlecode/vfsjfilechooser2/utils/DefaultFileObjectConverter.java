@@ -13,7 +13,7 @@
  * under the License.
  */
 
-/**
+/*
  * DefaultFileObjectConverter.java
  * Copyright (C) 2012 University of Waikato, Hamilton, New Zealand
  */
@@ -22,7 +22,6 @@ package com.googlecode.vfsjfilechooser2.utils;
 import java.io.File;
 import java.io.Serializable;
 import java.net.URI;
-import java.net.URL;
 
 import org.apache.commons.vfs2.FileObject;
 
@@ -30,7 +29,6 @@ import org.apache.commons.vfs2.FileObject;
  * Converts {@link FileObject} objects into {@link File} ones.
  * 
  * @author  fracpete (fracpete at waikato dot ac dot nz)
- * @version $Revision$
  */
 public class DefaultFileObjectConverter
   implements Serializable, FileObjectConverter<File> {

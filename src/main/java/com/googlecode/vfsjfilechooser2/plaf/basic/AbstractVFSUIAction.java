@@ -24,7 +24,7 @@ import javax.swing.Action;
 
 /**
  * That class is a clone of UIAction in some Sun's code
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.1
  */
 public abstract class AbstractVFSUIAction implements Action
@@ -33,7 +33,7 @@ public abstract class AbstractVFSUIAction implements Action
 
     /**
      *
-     * @param name
+     * @param name the action name
      */
     public AbstractVFSUIAction(String name)
     {
@@ -42,7 +42,7 @@ public abstract class AbstractVFSUIAction implements Action
 
     /**
      *
-     * @return
+     * @return the name
      */
     public final String getName()
     {
@@ -71,6 +71,8 @@ public abstract class AbstractVFSUIAction implements Action
 
     /**
      * Cover method for <code>isEnabled(null)</code>.
+     *
+     * @return true if enabled
      */
     public final boolean isEnabled()
     {
@@ -82,7 +84,7 @@ public abstract class AbstractVFSUIAction implements Action
      * override this. Be aware that <code>sender</code> may be null.
      *
      * @param sender Widget enabled state is being asked for, may be null.
-     * @return
+     * @return true if enabled
      */
     public boolean isEnabled(Object sender)
     {

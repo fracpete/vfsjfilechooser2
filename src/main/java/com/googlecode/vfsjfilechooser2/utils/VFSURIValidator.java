@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
 
 /**
  * VFS URIs validator
- * @author Stan Love <stanlove at users.sourceforge.net>
+ * @author Stan Love (stanlove at users.sourceforge.net)
  * @version 0.0.4
  */
 public class VFSURIValidator {
@@ -382,7 +382,7 @@ public class VFSURIValidator {
 	}
 
 	/**
-	 * @param args
+	 * @param args the command-line args
 	 */
 	public static void main(String[] args) {
 		//test code

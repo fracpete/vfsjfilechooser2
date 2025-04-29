@@ -35,7 +35,7 @@ import javax.crypto.spec.*;
 /**
  * Utility class to save bookmarks
  * 
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @author Stan Love
  * @version 0.0.2
  */

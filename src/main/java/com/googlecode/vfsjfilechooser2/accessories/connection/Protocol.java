@@ -27,7 +27,7 @@ package com.googlecode.vfsjfilechooser2.accessories.connection;
  * using a -1 value in the connection dialog
  * </p>
  * Enumeration holding protocol constants
- * @author Yves Zoundi<yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.1
  */
 public enum Protocol

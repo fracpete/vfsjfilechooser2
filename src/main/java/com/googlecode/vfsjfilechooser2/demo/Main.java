@@ -40,7 +40,7 @@ import javax.swing.JTextField;
 
 /**
  * VFSJFileChooser demo
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.1
  */
 @SuppressWarnings("serial")
@@ -115,7 +115,7 @@ public final class Main extends JFrame implements Runnable
 
     /**
      * Class to open the file dialog
-     * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+     * @author Yves Zoundi (yveszoundi at users dot sf dot net)
      * @version 0.0.1
      */
     private class OpenAction extends AbstractAction

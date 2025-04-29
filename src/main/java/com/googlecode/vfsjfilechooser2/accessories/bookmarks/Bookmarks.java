@@ -38,7 +38,7 @@ import com.googlecode.vfsjfilechooser2.utils.VFSURIValidator;
  * The bookmarks table model
  * 
  * @author Dirk Moebius (JEdit)
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @author Stan Love
  * @version 0.0.5
  */
@@ -74,7 +74,7 @@ public class Bookmarks extends AbstractTableModel {
 	}
 
 	/**
-	 * @param e
+	 * @param e the entry
 	 */
 	public void add(TitledURLEntry e) {
 		synchronized (entries) {
@@ -96,15 +96,15 @@ public class Bookmarks extends AbstractTableModel {
 	}
 
 	/**
-	 * @return
+	 * @return the size
 	 */
 	public int getSize() {
 		return entries.size();
 	}
 
 	/**
-	 * @param index
-	 * @return
+	 * @param index the index
+	 * @return the title
 	 */
 	public String getTitle(int index) {
 		TitledURLEntry e = getEntry(index);
@@ -113,8 +113,8 @@ public class Bookmarks extends AbstractTableModel {
 	}
 
 	/**
-	 * @param index
-	 * @return
+	 * @param index the index
+	 * @return the url
 	 */
 	public String getURL(int index) {
 		TitledURLEntry e = getEntry(index);
@@ -123,8 +123,8 @@ public class Bookmarks extends AbstractTableModel {
 	}
 
 	/**
-	 * @param index
-	 * @return
+	 * @param index the index
+	 * @return the entry
 	 */
 	public TitledURLEntry getEntry(int index) {
 		if ((index < 0) || (index > entries.size())) {
@@ -139,7 +139,7 @@ public class Bookmarks extends AbstractTableModel {
 	}
 
 	/**
-	 * @param row
+	 * @param row the row index
 	 */
 	public void delete(int row) {
 		synchronized (entries) {
@@ -150,7 +150,7 @@ public class Bookmarks extends AbstractTableModel {
 	}
 
 	/**
-	 * @param row
+	 * @param row the index index
 	 */
 	public void moveup(int row) {
 		if (row == 0) {

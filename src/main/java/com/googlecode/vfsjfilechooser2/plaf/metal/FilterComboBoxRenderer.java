@@ -27,7 +27,7 @@ import com.googlecode.vfsjfilechooser2.filechooser.AbstractVFSFileFilter;
 
 /**
  * Renderer for the file filters drop down list
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.1
  */
 @SuppressWarnings("serial")

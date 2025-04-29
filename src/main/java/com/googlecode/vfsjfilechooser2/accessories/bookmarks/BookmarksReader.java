@@ -48,7 +48,7 @@ import org.xml.sax.helpers.XMLReaderFactory;
 /**
  * Utility class to read bookmarks
  * 
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @author Stan Love
  * @version 0.0.2
  */

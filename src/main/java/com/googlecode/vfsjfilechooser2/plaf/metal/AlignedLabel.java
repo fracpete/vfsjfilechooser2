@@ -26,7 +26,7 @@ import javax.swing.JLabel;
 
 /**
  * Code based on the <code>AlignedLabel</code> class in swing' MetalFileChooserUI
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.1
  */
 @SuppressWarnings("serial")

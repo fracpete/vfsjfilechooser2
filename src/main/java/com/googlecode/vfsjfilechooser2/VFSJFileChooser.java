@@ -98,7 +98,7 @@ import com.googlecode.vfsjfilechooser2.utils.VFSUtils;
 
 /**
  * The filechooser class with commons-VFS abstraction layer based on JFileChooser
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.1
  */
 @SuppressWarnings("serial")
@@ -147,7 +147,7 @@ public class VFSJFileChooser extends JComponent implements Accessible
     // Accessibility support 
     protected AccessibleContext m_accessibleContext = null;
 
-    // Pluggable L&F  
+    // Pluggable L&amp;F  
     private MetalVFSFileChooserUI defaultUI;
 
     /**
@@ -232,8 +232,8 @@ public class VFSJFileChooser extends JComponent implements Accessible
     /**
      * Constructs a <code>VFSJFileChooser</code> using the given current directory
      * path and <code>FileSystemView</code>.
-     * @param currentDirectoryPath
-     * @param fsv
+     * @param currentDirectoryPath the current path
+     * @param fsv the file system view
      */
     public VFSJFileChooser(String currentDirectoryPath,
         AbstractVFSFileSystemView fsv)
@@ -273,7 +273,7 @@ public class VFSJFileChooser extends JComponent implements Accessible
 
     /**
      * Performs common constructor initialization and setup.
-     * @param view
+     * @param view the file system view
      */
     protected void setup(AbstractVFSFileSystemView view)
     {
@@ -348,10 +348,6 @@ public class VFSJFileChooser extends JComponent implements Accessible
      * @see #setTransferHandler
      * @see TransferHandler
      * @since 1.4
-     *
-     * @beaninfo
-     *  description: determines whether automatic drag handling is enabled
-     *        bound: false
      */
     public void setDragEnabled(boolean b)
     {
@@ -408,12 +404,7 @@ public class VFSJFileChooser extends JComponent implements Accessible
      * not the current directory, changes the current directory
      * to be the file's parent directory.
      *
-     * @beaninfo
-     *   preferred: true
-     *       bound: true
-     *
      * @see #getSelectedFile
-     *
      * @param file the selected file
      */
     public void setSelectedFile(File file)
@@ -425,10 +416,6 @@ public class VFSJFileChooser extends JComponent implements Accessible
      * Sets the selected file. If the file's parent directory is
      * not the current directory, changes the current directory
      * to be the file's parent directory.
-     *
-     * @beaninfo
-     *   preferred: true
-     *       bound: true
      *
      * @see #getSelectedFileObject
      *
@@ -489,10 +476,6 @@ public class VFSJFileChooser extends JComponent implements Accessible
     /**
      * Sets the list of selected files if the file chooser is
      * set to allow multiple selection.
-     *
-     * @beaninfo
-     *       bound: true
-     * description: The list of selected files if the chooser is in multiple selection mode.
      */
     public void setSelectedFiles(File[] selectedFiles)
     {
@@ -505,10 +488,6 @@ public class VFSJFileChooser extends JComponent implements Accessible
     /**
      * Sets the list of selected files if the file chooser is
      * set to allow multiple selection.
-     *
-     * @beaninfo
-     *       bound: true
-     * description: The list of selected files if the chooser is in multiple selection mode.
      */
     public void setSelectedFileObjects(FileObject[] selectedFiles)
     {
@@ -565,11 +544,6 @@ public class VFSJFileChooser extends JComponent implements Accessible
      * until it finds a traversable directory, or hits the root of the
      * file system.
      *
-     * @beaninfo
-     *   preferred: true
-     *       bound: true
-     * description: The directory that the VFSJFileChooser is showing files of.
-     *
      * @param dir the current directory to point to
      * @see #getCurrentDirectory
      */
@@ -590,11 +564,6 @@ public class VFSJFileChooser extends JComponent implements Accessible
      * If the parent is not traversable, then it will walk up the parent tree
      * until it finds a traversable directory, or hits the root of the
      * file system.
-     *
-     * @beaninfo
-     *   preferred: true
-     *       bound: true
-     * description: The directory that the VFSJFileChooser is showing files of.
      *
      * @param dir the current directory to point to
      * @see #getCurrentDirectoryObject
@@ -662,7 +631,7 @@ public class VFSJFileChooser extends JComponent implements Accessible
      * Makes sure that the specified file is viewable, and
      * not hidden.
      *
-     * @param fileObject  a File object
+     * @param f  a File object
      */
     public void ensureFileIsVisible(FileObject f)
     {
@@ -676,7 +645,7 @@ public class VFSJFileChooser extends JComponent implements Accessible
     /**
      * Pops up an "Open File" file chooser dialog. Note that the
      * text that appears in the approve button is determined by
-     * the L&F.
+     * the L&amp;F.
      *
      * @param    parent  the parent component of the dialog,
      *                  can be <code>null</code>;
@@ -704,7 +673,7 @@ public class VFSJFileChooser extends JComponent implements Accessible
     /**
      * Pops up a "Save File" file chooser dialog. Note that the
      * text that appears in the approve button is determined by
-     * the L&F.
+     * the L&amp;F.
      *
      * @param    parent  the parent component of the dialog,
      *                  can be <code>null</code>;
@@ -924,14 +893,7 @@ public class VFSJFileChooser extends JComponent implements Accessible
      *
      * @param b <code>false</code> if control buttons should not be
      *    shown; otherwise, <code>true</code>
-     *
-     * @beaninfo
-     *   preferred: true
-     *       bound: true
-     * description: Sets whether the approve & cancel buttons are shown.
-     *
      * @see #getControlButtonsAreShown
-     * @see #CONTROL_BUTTONS_ARE_SHOWN_CHANGED_PROPERTY
      * @since 1.3
      */
     public void setControlButtonsAreShown(boolean b)
@@ -988,15 +950,6 @@ public class VFSJFileChooser extends JComponent implements Accessible
      *
      * @exception IllegalArgumentException if <code>dialogType</code> is
      *                          not legal
-     * @beaninfo
-     *   preferred: true
-     *       bound: true
-     * description: The type (open, save, custom) of the VFSJFileChooser.
-     *        enum:
-     *              OPEN_DIALOG VFSJFileChooser.OPEN_DIALOG
-     *              SAVE_DIALOG VFSJFileChooser.SAVE_DIALOG
-     *              CUSTOM_DIALOG VFSJFileChooser.CUSTOM_DIALOG
-     *
      * @see #getDialogType
      * @see #setApproveButtonText
      */
@@ -1032,14 +985,7 @@ public class VFSJFileChooser extends JComponent implements Accessible
      * title bar.
      *
      * @param dialogTitle the new <code>String</code> for the title bar
-     *
-     * @beaninfo
-     *   preferred: true
-     *       bound: true
-     * description: The title of the VFSJFileChooser dialog window.
-     *
      * @see #getDialogTitle
-     *
      */
     public void setDialogTitle(String dialogTitle)
     {
@@ -1067,11 +1013,6 @@ public class VFSJFileChooser extends JComponent implements Accessible
     /**
      * Sets the tooltip text used in the <code>ApproveButton</code>.
      * If <code>null</code>, the UI object will determine the button's text.
-     *
-     * @beaninfo
-     *   preferred: true
-     *       bound: true
-     * description: The tooltip text for the ApproveButton.
      *
      * @param toolTipText the tooltip text for the approve button
      * @see #setApproveButtonText
@@ -1123,12 +1064,6 @@ public class VFSJFileChooser extends JComponent implements Accessible
      * Sets the approve button's mnemonic using a numeric keycode.
      *
      * @param mnemonic  an integer value for the mnemonic key
-     *
-     * @beaninfo
-     *   preferred: true
-     *       bound: true
-     * description: The mnemonic key accelerator for the ApproveButton.
-     *
      * @see #getApproveButtonMnemonic
      */
     public void setApproveButtonMnemonic(int mnemonic)
@@ -1166,13 +1101,7 @@ public class VFSJFileChooser extends JComponent implements Accessible
      * Sets the text used in the <code>ApproveButton</code> in the
      * <code>FileChooserUI</code>.
      *
-     * @beaninfo
-     *   preferred: true
-     *       bound: true
-     * description: The text that goes in the ApproveButton.
-     *
      * @param approveButtonText the text used in the <code>ApproveButton</code>
-     *
      * @see #getApproveButtonText
      * @see #setDialogType
      * @see #showDialog
@@ -1234,12 +1163,6 @@ public class VFSJFileChooser extends JComponent implements Accessible
      *
      * @param filter the <code>FileFilter</code> to add to the choosable file
      *               filter list
-     *
-     * @beaninfo
-     *   preferred: true
-     *       bound: true
-     * description: Adds a filter to the list of user choosable file filters.
-     *
      * @see #getChoosableFileFilters
      * @see #removeChoosableFileFilter
      * @see #resetChoosableFileFilters
@@ -1347,13 +1270,8 @@ public class VFSJFileChooser extends JComponent implements Accessible
      * as an available choice in the choosable filter list.
      * If false, the <code>AcceptAll</code> file filter is removed from
      * the list of available file filters.
-     * If true, the <code>AcceptAll</code> file filter will become the
+     * If true, the <code>AcceptAll</code> file filter will become
      * the actively used file filter.
-     *
-     * @beaninfo
-     *   preferred: true
-     *       bound: true
-     * description: Sets whether the AcceptAll FileFilter is used as an available choice in the choosable filter list.
      *
      * @see #isAcceptAllFileFilterUsed
      * @see #getAcceptAllFileFilter
@@ -1399,11 +1317,6 @@ public class VFSJFileChooser extends JComponent implements Accessible
      * Note: if there was a previous accessory, you should unregister
      * any listeners that the accessory might have registered with the
      * file chooser.
-     *
-     * @beaninfo
-     *   preferred: true
-     *       bound: true
-     * description: Sets the accessory component on the VFSJFileChooser.
      */
     public void setAccessory(JComponent newAccessory)
     {
@@ -1422,15 +1335,6 @@ public class VFSJFileChooser extends JComponent implements Accessible
      *
      * @exception IllegalArgumentException  if <code>mode</code> is an
      *                          illegal file selection mode
-     * @beaninfo
-     *   preferred: true
-     *       bound: true
-     * description: Sets the types of files that the VFSJFileChooser can choose.
-     *        enum: FILES_ONLY VFSJFileChooser.FILES_ONLY
-     *              DIRECTORIES_ONLY VFSJFileChooser.DIRECTORIES_ONLY
-     *              FILES_AND_DIRECTORIES VFSJFileChooser.FILES_AND_DIRECTORIES
-     *
-     *
      * @see #getFileSelectionMode
      */
     public void setFileSelectionMode(SELECTION_MODE mode)
@@ -1503,10 +1407,6 @@ public class VFSJFileChooser extends JComponent implements Accessible
      * Sets the file chooser to allow multiple file selections.
      *
      * @param b true if multiple files may be selected
-     * @beaninfo
-     *       bound: true
-     * description: Sets multiple file selection mode.
-     *
      * @see #isMultiSelectionEnabled
      */
     public void setMultiSelectionEnabled(boolean b)
@@ -1549,11 +1449,6 @@ public class VFSJFileChooser extends JComponent implements Accessible
      * in the file chooser. The job of determining which files are
      * shown is done by the <code>FileView</code>.
      *
-     * @beaninfo
-     *   preferred: true
-     *       bound: true
-     * description: Sets file hiding on or off.
-     *
      * @param b the boolean value that determines whether file hiding is
      *          turned on
      * @see #isFileHidingEnabled
@@ -1577,11 +1472,6 @@ public class VFSJFileChooser extends JComponent implements Accessible
     /**
      * Sets the current file filter. The file filter is used by the
      * file chooser to filter out files from the user's view.
-     *
-     * @beaninfo
-     *   preferred: true
-     *       bound: true
-     * description: Sets the File Filter used to filter out files of type.
      *
      * @param filter the new current file filter to use
      * @see #getFileFilter
@@ -1640,11 +1530,6 @@ public class VFSJFileChooser extends JComponent implements Accessible
     /**
      * Sets the file view to used to retrieve UI information, such as
      * the icon that represents a file or the type description of a file.
-     *
-     * @beaninfo
-     *   preferred: true
-     *       bound: true
-     * description: Sets the File View used to get file type information.
      *
      * @see #getFileView
      */
@@ -1848,12 +1733,6 @@ public class VFSJFileChooser extends JComponent implements Accessible
      * accessing and creating file system resources, such as finding
      * the floppy drive and getting a list of root drives.
      * @param fsv  the new <code>AbstractVFSFileSystemView</code>
-     *
-     * @beaninfo
-     *      expert: true
-     *       bound: true
-     * description: Sets the FileSytemView used to get filesystem information.
-     *
      * @see FileSystemView
      */
     public void setFileSystemView(AbstractVFSFileSystemView fsv)
@@ -1881,8 +1760,6 @@ public class VFSJFileChooser extends JComponent implements Accessible
      * This method causes an action event to fire
      * with the command string equal to
      * <code>APPROVE_SELECTION</code>.
-     *
-     * @see #APPROVE_SELECTION
      */
     public void approveSelection()
     {
@@ -1902,8 +1779,6 @@ public class VFSJFileChooser extends JComponent implements Accessible
      * This method causes an action event to fire
      * with the command string equal to
      * <code>CANCEL_SELECTION</code>.
-     *
-     * @see #CANCEL_SELECTION
      */
     public void cancelSelection()
     {
@@ -2033,15 +1908,12 @@ public class VFSJFileChooser extends JComponent implements Accessible
     }
 
     /**
-     * Returns a string that specifies the name of the L&F class
+     * Returns a string that specifies the name of the L&amp;F class
      * that renders this component.
      *
      * @return the string "FileChooserUI"
      * @see JComponent#getUIClassID
      * @see UIDefaults#getUI
-     * @beaninfo
-     *        expert: true
-     *   description: A string that specifies the name of the L&F class.
      */
     @Override
     public String getUIClassID()
@@ -2050,9 +1922,9 @@ public class VFSJFileChooser extends JComponent implements Accessible
     }
 
     /**
-     * Gets the UI object which implements the L&F for this component.
+     * Gets the UI object which implements the L&amp;F for this component.
      *
-     * @return the FileChooserUI object that implements the FileChooserUI L&F
+     * @return the FileChooserUI object that implements the FileChooserUI L&amp;F
      */
     public AbstractVFSFileChooserUI getUI()
     {
@@ -2280,7 +2152,7 @@ public class VFSJFileChooser extends JComponent implements Accessible
 
     /**
      * VFSJFileChooser dialog types
-     * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+     * @author Yves Zoundi (yveszoundi at users dot sf dot net)
      * @version 0.0.1
      */
     public enum DIALOG_TYPE
@@ -2304,7 +2176,7 @@ public class VFSJFileChooser extends JComponent implements Accessible
 
     /**
      * VFSJFileChooser return types
-     * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+     * @author Yves Zoundi (yveszoundi at users dot sf dot net)
      * @author Stan Love
      * @version 0.0.2
      */
@@ -2331,7 +2203,7 @@ public class VFSJFileChooser extends JComponent implements Accessible
 
     /**
      * VFSJFileChooser file selection types
-     * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+     * @author Yves Zoundi (yveszoundi at users dot sf dot net)
      * @version 0.0.1
      */
     public enum SELECTION_MODE

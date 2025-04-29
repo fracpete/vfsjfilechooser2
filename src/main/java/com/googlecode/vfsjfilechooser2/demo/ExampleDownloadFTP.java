@@ -19,7 +19,7 @@ import org.apache.commons.vfs2.provider.ftp.FtpFileSystemConfigBuilder;
 public class ExampleDownloadFTP {
 
 	/**
-	 * @param args
+	 * @param args the command-line args
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

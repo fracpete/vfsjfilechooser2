@@ -51,7 +51,7 @@ import com.googlecode.vfsjfilechooser2.utils.VFSResources;
 /**
  * <p>The default accessory panel you could add
  * It contains a bookmarks manager and the a connection dialog</p>
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.2
  */
 @SuppressWarnings("serial")

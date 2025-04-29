@@ -64,8 +64,8 @@ import com.googlecode.vfsjfilechooser2.utils.VFSURIValidator;
 /**
  * The connection dialog
  * 
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
- * @author Jojada Tirtowidjojo <jojada at users.sourceforge.net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
+ * @author Jojada Tirtowidjojo (jojada at users.sourceforge.net)
  * @author Stan Love
  * @version 0.0.4
  */

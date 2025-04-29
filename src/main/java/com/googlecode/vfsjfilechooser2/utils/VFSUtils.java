@@ -40,9 +40,9 @@ import org.apache.commons.vfs2.provider.sftp.SftpFileSystemConfigBuilder;
 
 /**
  * A helper class to deal with commons-vfs file abstractions
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
- * @author Jojada Tirtowidjojo <jojada at users.sourceforge.net> 
- * @author Stephan Schuster <stephanschuster at users.sourceforge.net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
+ * @author Jojada Tirtowidjojo (jojada at users.sourceforge.net)
+ * @author Stephan Schuster (stephanschuster at users.sourceforge.net)
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version 0.0.5
  */
@@ -215,7 +215,7 @@ public final class VFSUtils
 
     /**
      * Tells whether a file is writable
-     * @param fileObject
+     * @param fileObject the file object
      * @return whether a file is writable
      */
     public static boolean canWrite(FileObject fileObject)

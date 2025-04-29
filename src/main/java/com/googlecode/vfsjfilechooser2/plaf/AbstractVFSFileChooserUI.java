@@ -29,43 +29,41 @@ import javax.swing.plaf.ComponentUI;
 
 /**
  * The FileChooserUI implementation using commons-vfs based on Swing FileChooserUI
- * @author Yves Zoundi <yveszoundi at users dot sf dot net>
+ * @author Yves Zoundi (yveszoundi at users dot sf dot net)
  * @version 0.0.1
  */
 public abstract class AbstractVFSFileChooserUI extends ComponentUI
 {
     /**
-     *
-     * @param fc
-     * @return
+     * @param fc the file chooser
+     * @return the filter
      */
-    public abstract AbstractVFSFileFilter getAcceptAllFileFilter(
-        VFSJFileChooser fc);
+    public abstract AbstractVFSFileFilter getAcceptAllFileFilter(VFSJFileChooser fc);
 
     /**
      *
-     * @param fc
-     * @return
+     * @param fc the file chooser
+     * @return the file view
      */
     public abstract AbstractVFSFileView getFileView(VFSJFileChooser fc);
 
     /**
      *
-     * @param fc
-     * @return
+     * @param fc the file chooser
+     * @return the caption
      */
     public abstract String getApproveButtonText(VFSJFileChooser fc);
 
     /**
      *
-     * @param fc
-     * @return
+     * @param fc the file chooser
+     * @return the title
      */
     public abstract String getDialogTitle(VFSJFileChooser fc);
 
     /**
      *
-     * @param fc
+     * @param fc the file chooser
      */
     public abstract void rescanCurrentDirectory(VFSJFileChooser fc);
 

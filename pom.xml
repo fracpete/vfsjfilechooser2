@@ -7,12 +7,12 @@
 
   <name>vfsjfilechooser2</name>
   <description>
-  vfsjfilechooser2 is a mavenized fork of the dormant vfsjfilechooser project
-  on sf.net (http://vfsjfilechooser.sourceforge.net/).
-  It is an alternative to Java's JFileChooser Swing component, which does not
-  suffer from the JFileChooser's infamous "freezes" on Windows.
-  It has been updated to work with version 2.0 of the VFS Apache commons and
-  includes a few bugfixes and enhancements. 
+    vfsjfilechooser2 is a mavenized fork of the dormant vfsjfilechooser project
+    on sf.net (http://vfsjfilechooser.sourceforge.net/).
+    It is an alternative to Java's JFileChooser Swing component, which does not
+    suffer from the JFileChooser's infamous "freezes" on Windows.
+    It has been updated to work with version 2.0 of the VFS Apache commons and
+    includes a few bugfixes and enhancements.
   </description>
   <url>https://github.com/fracpete/vfsjfilechooser2</url>
   <licenses>
@@ -74,7 +74,7 @@
       </roles>
     </developer>
   </developers>
-  
+
   <scm>
     <connection>scm:git:ssh://git@github.com/fracpete/vfsjfilechooser2</connection>
     <developerConnection>scm:git:ssh://git@github.com/fracpete/vfsjfilechooser2</developerConnection>
@@ -87,18 +87,18 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.13.1</version>
-      <scope>test</scope>      
+      <scope>test</scope>
     </dependency>
-	<dependency>
-	    <groupId>com.hierynomus</groupId>
-	    <artifactId>sshj</artifactId>
-	    <version>0.27.0</version>
-	</dependency>
-	<dependency>
-	    <groupId>commons-net</groupId>
-	    <artifactId>commons-net</artifactId>
-	    <version>3.9.0</version>
-	</dependency>
+    <dependency>
+      <groupId>com.hierynomus</groupId>
+      <artifactId>sshj</artifactId>
+      <version>0.27.0</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-net</groupId>
+      <artifactId>commons-net</artifactId>
+      <version>3.9.0</version>
+    </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-vfs2</artifactId>
@@ -110,47 +110,17 @@
       <artifactId>commons-io</artifactId>
       <version>2.14.0</version>
     </dependency>
-        <dependency>
-    	<groupId>org.apache.httpcomponents</groupId>
-    	<artifactId>httpclient</artifactId>
-    	<version>4.5.13</version>
-	</dependency>
     <dependency>
-    	<groupId>com.jcraft</groupId>
-    	<artifactId>jsch</artifactId>
-    	<version>0.1.55</version>
-	</dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.5.13</version>
+    </dependency>
+    <dependency>
+      <groupId>com.jcraft</groupId>
+      <artifactId>jsch</artifactId>
+      <version>0.1.55</version>
+    </dependency>
   </dependencies>
-
-  <profiles>
-    <profile>
-      <id>release-sign-artifacts</id>
-      <activation>
-        <property>
-          <name>performRelease</name>
-          <value>true</value>
-        </property>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.1</version>
-            <executions>
-              <execution>
-                <id>sign-artifacts</id>
-                <phase>verify</phase>
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

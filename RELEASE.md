@@ -1,6 +1,6 @@
 # Release
 
-Switch to Java 9
+Switch to Java 11 (Java 9 has outdated certificates)
 
 Use the following command to make a new release:
 ```

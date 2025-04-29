@@ -3,7 +3,7 @@
 
   <artifactId>vfsjfilechooser2</artifactId>
   <packaging>jar</packaging>
-  <version>0.2.10</version>
+  <version>0.2.11-SNAPSHOT</version>
 
   <name>vfsjfilechooser2</name>
   <description>
@@ -79,7 +79,7 @@
     <connection>scm:git:ssh://git@github.com/fracpete/vfsjfilechooser2</connection>
     <developerConnection>scm:git:ssh://git@github.com/fracpete/vfsjfilechooser2</developerConnection>
     <url>https://github.com/fracpete/vfsjfilechooser2</url>
-    <tag>vfsjfilechooser2-0.2.10</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <dependencies>

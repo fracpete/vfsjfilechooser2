@@ -1,5 +1,4 @@
-vfsjfilechooser2
-================
+# vfsjfilechooser2
 
 vfsjfilechooser2 is a mavenized fork of the dormant vfsjfilechooser project on
 sf.net (https://sourceforge.net/projects/vfsjfilechooser/).
@@ -18,7 +17,9 @@ Developers of the original project:
  * yveszoundi
 
 The project is licensed under the Apache Software License, Version 2.0 (see
-LICENSE.txt for details).
+[LICENSE.txt](LICENSE.txt) for details).
+
+## Maven
 
 How to include the artifact in your project:
 ```xml
@@ -29,7 +30,9 @@ How to include the artifact in your project:
     </dependency>
 ```
 
+## Links
+
 Current project page:
 
-  https://github.com/fracpete/vfsjfilechooser2
+https://github.com/fracpete/vfsjfilechooser2
 

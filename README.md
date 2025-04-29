@@ -26,7 +26,7 @@ How to include the artifact in your project:
     <dependency>
       <groupId>com.github.fracpete</groupId>
       <artifactId>vfsjfilechooser2</artifactId>
-      <version>0.2.9</version>
+      <version>0.2.10</version>
     </dependency>
 ```
 

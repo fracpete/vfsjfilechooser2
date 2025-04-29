@@ -1566,7 +1566,7 @@ public class MetalVFSFileChooserUI extends BasicVFSFileChooserUI
 
             FileObject folder = (FileObject) directoryComboBox.getSelectedItem();
 
-            if (!getFileChooser().getCurrentDirectory().equals(folder))
+            if (!getFileChooser().getCurrentDirectory().toString().equals(folder.toString()))
             {
                 getFileChooser().setCurrentDirectoryObject(folder);
             }

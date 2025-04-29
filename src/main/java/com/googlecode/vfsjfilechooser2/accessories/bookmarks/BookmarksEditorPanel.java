@@ -363,7 +363,7 @@ public final class BookmarksEditorPanel extends JPanel {
 					}
 				}
 
-				if( (m_username.equals("")) && (!m_password.equals("")) ){
+				if( (m_username.isEmpty()) && (m_password.length != 0) ){
 						errors
 								.append(
 										VFSResources
